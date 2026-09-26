@@ -1,0 +1,16 @@
+n work gemm_systolic_core_16s_46s verilog;
+av .compile_point_summary_status "Remapped";
+av .compile_point_summary_reason "Mapping options changed";
+av .compile_point_update_model 0;
+av .cp_checksum -1993442990;
+av .new_instances 0;
+av .new_nets 0;
+av .old_insts 0;
+av .old_nets 0;
+av .old_new_instances "-";
+av .old_new_nets "-";
+av .compile_point_fast_synthesis "No";
+av .compile_point_cputime_used 0.493106;
+av .compile_point_starttime_stamp "Wed Aug 26 23:28:19 2026";
+av .compile_point_endtime_stamp "Wed Aug 26 23:28:20 2026";
+av .compile_point_realtime_used 0.374316;

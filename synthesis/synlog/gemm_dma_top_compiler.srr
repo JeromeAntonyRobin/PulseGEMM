@@ -1,0 +1,268 @@
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu Core 26
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234516
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys HDL Compiler, Version comp202603synp1, Build 0R, Built May 25 2026 08:44:22, @6660603
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu Core 26
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234516
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys Verilog Compiler, Version comp202603synp1, Build 0R, Built May 25 2026 08:44:22, @6660603
+
+@N|Running in 64-bit mode
+@N: CG1349 :	| Running Verilog Compiler in System Verilog mode
+
+@I::"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v" (library work)
+@I::"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v" (library __hyper__lib__)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v" (library work)
+@N|stack limit increased to max
+Verilog syntax check successful!
+Options changed - recompiling
+Selecting top level module gemm_dma_top
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":3:7:3:22|Synthesizing module gemm_skew_buffer in library work.
+
+	DIM=32'b00000000000000000000000000010000
+   Generated name = gemm_skew_buffer_16s
+@W: CG133 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":16:14:16:14|Object d is declared but not assigned. Either assign a value or remove the declaration.
+Running optimization stage 1 on gemm_skew_buffer_16s .......
+Finished optimization stage 1 on gemm_skew_buffer_16s (CPU Time 0h:00m:00s, Memory Used current: 249MB peak: 249MB)
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Synthesizing module gemm_systolic_core in library work.
+
+	DIM=32'b00000000000000000000000000010000
+	TOTAL_CYCLES=32'b00000000000000000000000000101110
+   Generated name = gemm_systolic_core_16s_46s
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":3:7:3:13|Synthesizing module gemm_pe in library work.
+Running optimization stage 1 on gemm_pe .......
+Finished optimization stage 1 on gemm_pe (CPU Time 0h:00m:00s, Memory Used current: 249MB peak: 249MB)
+Running optimization stage 1 on gemm_systolic_core_16s_46s .......
+Finished optimization stage 1 on gemm_systolic_core_16s_46s (CPU Time 0h:00m:00s, Memory Used current: 252MB peak: 253MB)
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":3:7:3:18|Synthesizing module gemm_dma_top in library work.
+@N: CG440 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":123:15:123:23|Allowing writes in multiple processes for multi-port RAM
+@N: CG440 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":124:15:124:23|Allowing writes in multiple processes for multi-port RAM
+Running optimization stage 1 on gemm_dma_top .......
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":239:46:239:112|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":236:46:236:121|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":210:41:210:69|Found multi-write port RAM mat_b_mem, number of write ports=2, depth=64, width=32
+@N: CL214 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":209:41:209:69|Found multi-write port RAM mat_a_mem, number of write ports=2, depth=64, width=32
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Optimizing register bit s_axi_bresp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Optimizing register bit s_axi_bresp[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":180:4:180:9|Optimizing register bit s_axi_rresp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":180:4:180:9|Optimizing register bit s_axi_rresp[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit dma_err to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_arlen[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_arlen[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_awlen[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_awlen[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 7 to 6 of m_axi_arlen[7:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 7 to 6 of m_axi_awlen[7:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning unused register dma_err. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Pruning unused register s_axi_bresp[1:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":180:4:180:9|Pruning unused register s_axi_rresp[1:0]. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on gemm_dma_top (CPU Time 0h:00m:00s, Memory Used current: 259MB peak: 260MB)
+Running optimization stage 2 on gemm_dma_top .......
+@W: CL177 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Sharing sequential element s_axi_wready and merging s_axi_awready. Add a syn_preserve attribute to the element to prevent sharing.
+@N: CL201 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 11 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+   0101
+   0110
+   0111
+   1000
+   1001
+   1010
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 5 to 1 of m_axi_arlen[5:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 5 to 1 of m_axi_awlen[5:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":13:40:13:51|Input port bits 31 to 16 of s_axi_awaddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":13:40:13:51|Input port bits 11 to 8 of s_axi_awaddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":26:40:26:51|Input port bits 31 to 16 of s_axi_araddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":26:40:26:51|Input port bits 11 to 10 of s_axi_araddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@N: CL159 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":18:40:18:50|Input s_axi_wstrb is unused.
+@N: CL159 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":58:40:58:50|Input m_axi_bresp is unused.
+@N: CL159 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":76:40:76:50|Input m_axi_rresp is unused.
+Finished optimization stage 2 on gemm_dma_top (CPU Time 0h:00m:01s, Memory Used current: 313MB peak: 320MB)
+Running optimization stage 2 on gemm_pe .......
+Finished optimization stage 2 on gemm_pe (CPU Time 0h:00m:00s, Memory Used current: 315MB peak: 320MB)
+Running optimization stage 2 on gemm_systolic_core_16s_46s .......
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[10] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[15] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[16] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[17] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[18] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[19] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[20] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[21] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[22] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[23] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[24] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[25] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[26] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[27] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[28] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[29] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[30] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[31] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Pruning register bits 31 to 6 of cycle_cnt[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Finished optimization stage 2 on gemm_systolic_core_16s_46s (CPU Time 0h:00m:00s, Memory Used current: 315MB peak: 320MB)
+Running optimization stage 2 on gemm_skew_buffer_16s .......
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[3].SKEW_N.delay_pipe with address depth of 3 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[4].SKEW_N.delay_pipe with address depth of 4 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[5].SKEW_N.delay_pipe with address depth of 5 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[6].SKEW_N.delay_pipe with address depth of 6 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[7].SKEW_N.delay_pipe with address depth of 7 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[8].SKEW_N.delay_pipe with address depth of 8 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[9].SKEW_N.delay_pipe with address depth of 9 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[10].SKEW_N.delay_pipe with address depth of 10 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[11].SKEW_N.delay_pipe with address depth of 11 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[12].SKEW_N.delay_pipe with address depth of 12 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[13].SKEW_N.delay_pipe with address depth of 13 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[14].SKEW_N.delay_pipe with address depth of 14 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found sequential shift GEN_ROW_SKEW[15].SKEW_N.delay_pipe with address depth of 15 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[3].SKEW_N.delay_pipe with address depth of 3 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[4].SKEW_N.delay_pipe with address depth of 4 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[5].SKEW_N.delay_pipe with address depth of 5 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[6].SKEW_N.delay_pipe with address depth of 6 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[7].SKEW_N.delay_pipe with address depth of 7 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[8].SKEW_N.delay_pipe with address depth of 8 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[9].SKEW_N.delay_pipe with address depth of 9 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[10].SKEW_N.delay_pipe with address depth of 10 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[11].SKEW_N.delay_pipe with address depth of 11 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[12].SKEW_N.delay_pipe with address depth of 12 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[13].SKEW_N.delay_pipe with address depth of 13 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[14].SKEW_N.delay_pipe with address depth of 14 words and data bit width of 8.
+@N: CL135 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":47:16:47:21|Found sequential shift GEN_COL_SKEW[15].SKEW_N.delay_pipe with address depth of 15 words and data bit width of 8.
+Finished optimization stage 2 on gemm_skew_buffer_16s (CPU Time 0h:00m:00s, Memory Used current: 315MB peak: 320MB)
+
+For a summary of runtime per design unit, please see file:
+==========================================================
+@L: /home/ubuntu/GEMMCNN/synthesis/synwork/layer0.duruntime
+
+
+
+At c_ver Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 315MB peak: 320MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Sat Sep 26 23:05:40 2026
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu Core 26
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234516
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202603synp1, Build 0R, Built May 25 2026 08:44:22, @6660603
+
+@N|Running in 64-bit mode
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 259MB peak: 260MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Sat Sep 26 23:05:40 2026
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 95MB peak: 95MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
+
+Process completed successfully.
+# Sat Sep 26 23:05:40 2026
+
+###########################################################]

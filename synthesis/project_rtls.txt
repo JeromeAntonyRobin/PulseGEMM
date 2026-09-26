@@ -1,0 +1,5 @@
+"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v"
+"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v"
+"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v"
+"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v"
+"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v"

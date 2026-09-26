@@ -1,0 +1,93 @@
+{
+"Synplify Pro (R) Job Log" : {
+	"Date" : "23:28:21    26-Aug-2026",
+	"Working Directory" : "/home/ubuntu/GEMMCNN/synthesis",
+	"CDPL Log file" : "-",
+	"Install" : "/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro"
+},
+"synthesis" :{
+   "Job Flow" : "Sequential",
+   "Start Time" : "23:28:00",
+   "Runtime" : "21s",
+   "Executable Run Time" : "20s",
+   "synthesis" : {
+      "Job Flow" : "Sequential",
+      "Start Time" : "23:28:00",
+      "Runtime" : "21s",
+      "Executable Run Time" : "20s",
+      "compile" : {
+         "Job Flow" : "Sequential",
+         "Start Time" : "23:28:00",
+         "Runtime" : "19s",
+         "Executable Run Time" : "18s",
+         "compile_flow" : {
+            "Job Flow" : "Sequential",
+            "Start Time" : "23:28:00",
+            "Runtime" : "04s",
+            "Executable Run Time" : "03s",
+            "compiler" : {
+               "executable" : "bin/c_hdl",
+               "Run Directory" : "/home/ubuntu/GEMMCNN/synthesis",
+               "Run State" : "Complete",
+               "Return Code" : "0",
+               "Run Success" : "yes",
+               "Run Start Time" : "23:28:00",
+               "Run Time" : "04s",
+               "Exe Run Time" : "03s",
+               "max_parallel_jobs" : "4",
+               "Memory Usage" : "2.812000",
+               "CDPL" : "off",
+               "Up-to-date (run skipped)" : "no"
+            },
+            "multi_srs_gen" : {
+               "executable" : "bin/syn_nfilter",
+               "Run Directory" : "/home/ubuntu/GEMMCNN/synthesis",
+               "Run State" : "Complete",
+               "Return Code" : "0",
+               "Run Success" : "yes",
+               "Run Start Time" : "23:28:04",
+               "Run Time" : "00s",
+               "Exe Run Time" : "00s",
+               "Memory Usage" : "2.812000",
+               "CDPL" : "off",
+               "Up-to-date (run skipped)" : "no"
+            }
+         },
+         "premap" : {
+            "executable" : "bin/m_generic",
+            "Run Directory" : "/home/ubuntu/GEMMCNN/synthesis",
+            "Run State" : "Complete",
+            "Return Code" : "1",
+            "Run Success" : "yes",
+            "Run Start Time" : "23:28:04",
+            "Run Time" : "15s",
+            "Exe Run Time" : "15s",
+            "max_parallel_jobs" : "4",
+            "Memory Usage" : "2.816000",
+            "CDPL" : "off",
+            "Up-to-date (run skipped)" : "no"
+         }
+      },
+      "map" : {
+         "Job Flow" : "Sequential",
+         "Start Time" : "23:28:19",
+         "Runtime" : "02s",
+         "Executable Run Time" : "02s",
+         "fpga_mapper" : {
+            "executable" : "bin/m_generic",
+            "Run Directory" : "/home/ubuntu/GEMMCNN/synthesis",
+            "Run State" : "Complete",
+            "Return Code" : "1",
+            "Run Success" : "yes",
+            "Run Start Time" : "23:28:19",
+            "Run Time" : "02s",
+            "Exe Run Time" : "02s",
+            "max_parallel_jobs" : "4",
+            "Memory Usage" : "2.816000",
+            "CDPL" : "off",
+            "Up-to-date (run skipped)" : "no"
+         }
+      }
+   }
+}
+}

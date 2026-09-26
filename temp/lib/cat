@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ "$1" == "/etc/issue" ]]; then
+    echo "Ubuntu 22.04.2 LTS \n \l"
+    exit 0
+elif [[ "$1" == "/etc/redhat-release" ]]; then
+    exit 1
+else
+    exec /bin/cat "$@"
+fi

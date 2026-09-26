@@ -1,0 +1,8 @@
+/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/bin/syn_nfilter  -link  -top  gemm_dma_top  -multisrs  /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_comp.srs  -osyn  /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_mult.srs  -log  /home/ubuntu/GEMMCNN/synthesis/synlog/gemm_dma_top_multi_srs_gen.srr 
+relcom:../../../microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/bin/syn_nfilter -link -top gemm_dma_top -multisrs ../synwork/gemm_dma_top_comp.srs -osyn ../synwork/gemm_dma_top_mult.srs -log ../synlog/gemm_dma_top_multi_srs_gen.srr
+rc:0 success:1 runtime:0
+file:../synwork/gemm_dma_top_comp.srs|io:i|time:1790444140|size:52656|exec:0|csum:035F2ECA8FCABD28BF2313BD90FAACE2
+file:../synwork/gemm_dma_top_mult.srs|io:o|time:1790444141|size:37625|exec:0|csum:
+file:../synlog/gemm_dma_top_multi_srs_gen.srr|io:o|time:1790444141|size:1147|exec:0|csum:
+file:../../../microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/linux_a_64/syn_nfilter|io:i|time:1779731232|size:14131992|exec:1|csum:3A41BACFB1D56E62B7B78B847685B403
+file:../../../microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/bin/syn_nfilter|io:i|time:1779730542|size:368|exec:1|csum:004E4455B64BA10AD6A92FB2301610E0

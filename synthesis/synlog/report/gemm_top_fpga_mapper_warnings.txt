@@ -1,0 +1,23 @@
+**** Begin Compile Point : gemm_top ****
+@W: BN114 :|Removing instance CP_fanout_cell_gemm_systolic_core_16s_46s_verilog_inst (in view: work.gemm_systolic_core_16s_46s_rtl_ilm(verilog)) because it does not drive other instances.
+**** End Compile Point : gemm_top ****
+**** Begin Compile Point : gemm_systolic_core_16s_46s ****
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+@W: BN114 :|Removing instance CP_fanout_cell_work_gemm_systolic_core_16s_46s_verilog_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_inst (in view: work.gemm_top(verilog)) because it does not drive other instances.
+**** End Compile Point : gemm_systolic_core_16s_46s ****
+@W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
+@W: MT420 |Found inferred clock gemm_top|clk with period 10.00ns. Please declare a user-defined clock on port clk.

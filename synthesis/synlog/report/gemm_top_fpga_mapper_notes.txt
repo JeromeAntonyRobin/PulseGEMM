@@ -1,0 +1,27 @@
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+@N: MF104 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Found compile point of type hard on View view:work.gemm_systolic_core_16s_46s(verilog) 
+**** Begin Compile Point : gemm_top ****
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+@N: MF104 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Found compile point of type hard on View view:work.gemm_systolic_core_16s_46s(verilog) 
+@N: MF105 |Performing bottom-up mapping of Top level view:work.gemm_top(verilog) 
+@N: MF106 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":3:7:3:14|Mapping Top level view:work.gemm_top(verilog) because 
+**** End Compile Point : gemm_top ****
+**** Begin Compile Point : gemm_systolic_core_16s_46s ****
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+@N: MF104 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Found compile point of type hard on View view:work.gemm_systolic_core_16s_46s(verilog) 
+@N: MF105 |Performing bottom-up mapping of Compile point view:work.gemm_systolic_core_16s_46s(verilog) 
+@N: MF106 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Mapping Compile point view:work.gemm_systolic_core_16s_46s(verilog) because 
+@N: MO231 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Found counter in view:work.gemm_systolic_core_16s_46s(verilog) instance cycle_cnt_1[5:0] 
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+**** End Compile Point : gemm_systolic_core_16s_46s ****
+@N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
+@N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

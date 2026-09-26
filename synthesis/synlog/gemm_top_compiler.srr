@@ -1,0 +1,540 @@
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu 24.04.4 LTS
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234524
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys HDL Compiler, Version comp202603synp1, Build 0R, Built May 25 2026 08:44:22, @6660603
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu 24.04.4 LTS
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234524
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys Verilog Compiler, Version comp202603synp1, Build 0R, Built May 25 2026 08:44:22, @6660603
+
+@N|Running in 64-bit mode
+@N: CG1349 :	| Running Verilog Compiler in System Verilog mode
+
+@I::"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v" (library work)
+@I::"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v" (library __hyper__lib__)
+@I::"/home/ubuntu/GEMMCNN/component/syn_comps.v" (library work)
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":21:13:21:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":61:13:61:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":88:13:88:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":118:13:118:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":168:13:168:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":213:13:213:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":232:13:232:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":281:13:281:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":335:13:335:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":657:13:657:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":761:13:761:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":795:13:795:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1059:13:1059:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1369:13:1369:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1396:13:1396:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1441:13:1441:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1474:13:1474:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1492:13:1492:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1518:13:1518:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1559:13:1559:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1581:13:1581:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1599:13:1599:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1616:13:1616:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1635:13:1635:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1652:13:1652:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1681:13:1681:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1712:13:1712:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":1802:13:1802:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2026:13:2026:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2187:13:2187:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2203:13:2203:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2219:13:2219:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2235:13:2235:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2267:13:2267:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":2648:13:2648:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3661:13:3661:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3732:13:3732:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3861:13:3861:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3879:13:3879:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3896:13:3896:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3911:13:3911:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3926:13:3926:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":3953:13:3953:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4067:13:4067:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4098:13:4098:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4144:13:4144:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4255:13:4255:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4439:13:4439:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4480:13:4480:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4506:13:4506:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4523:13:4523:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":4600:13:4600:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":5364:13:5364:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":6174:13:6174:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":6283:13:6283:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":6321:13:6321:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":6394:13:6394:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":7283:13:7283:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":8340:13:8340:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":9299:13:9299:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":10035:13:10035:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":10750:13:10750:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":10784:13:10784:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":10820:13:10820:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":10867:13:10867:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":10901:13:10901:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":11767:13:11767:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":12810:13:12810:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":12822:15:12822:27|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":12833:13:12833:25|User defined pragma syn_black_box detected
+
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/syn_comps.v":12846:13:12846:25|User defined pragma syn_black_box detected
+
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/hdl/gemm_top.v" (library work)
+@I::"/home/ubuntu/GEMMCNN/component/MSS_syn_comps.v" (library work)
+@W: CG100 :"/home/ubuntu/GEMMCNN/component/MSS_syn_comps.v":798:13:798:25|User defined pragma syn_black_box detected
+
+@N|stack limit increased to max
+Verilog syntax check successful!
+Selecting top level module gemm_top
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v":489:7:489:12|Synthesizing module CLKINT in library work.
+Running optimization stage 1 on CLKINT .......
+Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 518MB peak: 518MB)
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Synthesizing module gemm_systolic_core in library work.
+
+	DIM=32'b00000000000000000000000000010000
+	TOTAL_CYCLES=32'b00000000000000000000000000101110
+   Generated name = gemm_systolic_core_16s_46s
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":3:7:3:13|Synthesizing module gemm_pe in library work.
+Running optimization stage 1 on gemm_pe .......
+Finished optimization stage 1 on gemm_pe (CPU Time 0h:00m:00s, Memory Used current: 519MB peak: 519MB)
+Running optimization stage 1 on gemm_systolic_core_16s_46s .......
+Finished optimization stage 1 on gemm_systolic_core_16s_46s (CPU Time 0h:00m:00s, Memory Used current: 523MB peak: 523MB)
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":3:7:3:20|Synthesizing module gemm_axi_slave in library work.
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":9:7:9:22|Synthesizing module syn_hyper_source in library __hyper__lib__.
+
+	w=32'b00000000000000000000000000000001
+	tag=376'b0101111101011111011110000110110101110010010111110111010001100001011001110101111101011111001100010101111100110000010111110110001001100011001110000110000100111001001110000011010101100001011001010110001001100010011001000110000100110000011000100011001000110101011000110110010001100011001101100011000100110101011000110110001000111000011001100011100101100011011001100110001000111000
+   Generated name = syn_hyper_source_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z1
+Running optimization stage 1 on syn_hyper_source_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z1 .......
+Finished optimization stage 1 on syn_hyper_source_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z1 (CPU Time 0h:00m:00s, Memory Used current: 523MB peak: 523MB)
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":9:7:9:22|Synthesizing module syn_hyper_source in library __hyper__lib__.
+
+	w=32'b00000000000000000000000000000001
+	tag=376'b0101111101011111011110000110110101110010010111110111010001100001011001110101111101011111001100100101111100110000010111110110001001100011001110000110000100111001001110000011010101100001011001010110001001100010011001000110000100110000011000100011001000110101011000110110010001100011001101100011000100110101011000110110001000111000011001100011100101100011011001100110001000111000
+   Generated name = syn_hyper_source_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z2
+Running optimization stage 1 on syn_hyper_source_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z2 .......
+Finished optimization stage 1 on syn_hyper_source_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z2 (CPU Time 0h:00m:00s, Memory Used current: 523MB peak: 523MB)
+Running optimization stage 1 on gemm_axi_slave_xmr0 .......
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Optimizing register bit s_axi_bresp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Optimizing register bit s_axi_bresp[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":94:4:94:9|Optimizing register bit s_axi_rresp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":94:4:94:9|Optimizing register bit s_axi_rresp[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Pruning unused register s_axi_bresp[1:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":94:4:94:9|Pruning unused register s_axi_rresp[1:0]. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on gemm_axi_slave_xmr0 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":3:7:3:14|Synthesizing module gemm_top in library work.
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":16:7:16:23|Synthesizing module syn_hyper_connect in library __hyper__lib__.
+
+	w=32'b00000000000000000000000000000001
+	tag=376'b0101111101011111011110000110110101110010010111110111010001100001011001110101111101011111001100010101111100110000010111110110001001100011001110000110000100111001001110000011010101100001011001010110001001100010011001000110000100110000011000100011001000110101011000110110010001100011001101100011000100110101011000110110001000111000011001100011100101100011011001100110001000111000
+	dflt=32'b00000000000000000000000000000101
+	mustconnect=1'b1
+   Generated name = syn_hyper_connect_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z3
+Running optimization stage 1 on syn_hyper_connect_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z3 .......
+Finished optimization stage 1 on syn_hyper_connect_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z3 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":16:7:16:23|Synthesizing module syn_hyper_connect in library __hyper__lib__.
+
+	w=32'b00000000000000000000000000000001
+	tag=376'b0101111101011111011110000110110101110010010111110111010001100001011001110101111101011111001100100101111100110000010111110110001001100011001110000110000100111001001110000011010101100001011001010110001001100010011001000110000100110000011000100011001000110101011000110110010001100011001101100011000100110101011000110110001000111000011001100011100101100011011001100110001000111000
+	dflt=32'b00000000000000000000000000000101
+	mustconnect=1'b1
+   Generated name = syn_hyper_connect_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z4
+Running optimization stage 1 on syn_hyper_connect_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z4 .......
+Finished optimization stage 1 on syn_hyper_connect_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z4 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 1 on gemm_top .......
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register state[3:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awaddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[31:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_bready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_rready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register state[3:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awaddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[31:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_bready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_rready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awaddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_bready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_rready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[31:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register state[3:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awaddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_bready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_rready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[31:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register state[3:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awaddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_bready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_rready. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[31:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register state[3:0]. Make sure that there are no unused intermediate registers.
+@W: CL113 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Assignment missing for signal s_axi_rready in some paths. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Assignment missing for signal s_axi_bready in some paths. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL177 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Sharing sequential element s_axi_bready and merging s_axi_rready. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL251 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|All reachable assignments to s_axi_rready assign 1, register removed by optimization
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[3] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[4] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[5] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[10] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_araddr[15] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[2] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[3] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[4] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[5] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[10] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_awaddr[15] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[2] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[3] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[4] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[5] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[10] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[15] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[16] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[17] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[18] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[19] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[20] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[21] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[22] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[23] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[24] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[25] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[26] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[27] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[28] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[29] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[30] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Optimizing register bit s_axi_wdata[31] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning register bits 15 to 3 of s_axi_araddr[15:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning register bits 1 to 0 of s_axi_araddr[15:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awaddr[15:0]. Make sure that there are no unused intermediate registers.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning register bits 31 to 1 of s_axi_wdata[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Finished optimization stage 1 on gemm_top (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 2 on syn_hyper_connect_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z4 .......
+Finished optimization stage 2 on syn_hyper_connect_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z4 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 2 on syn_hyper_connect_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z3 .......
+Finished optimization stage 2 on syn_hyper_connect_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_5s_1_Z3 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 2 on gemm_top .......
+@N: CL201 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   0000
+   0001
+   0010
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_arvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wdata[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_araddr[2]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_awvalid. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Pruning unused register s_axi_wvalid. Make sure that there are no unused intermediate registers.
+Finished optimization stage 2 on gemm_top (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 2 on syn_hyper_source_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z2 .......
+Finished optimization stage 2 on syn_hyper_source_1s___xmr_tag__2_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z2 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 2 on syn_hyper_source_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z1 .......
+Finished optimization stage 2 on syn_hyper_source_1s___xmr_tag__1_0_bc8a985aebbda0b25cdc615cb8f9cfb8_Z1 (CPU Time 0h:00m:00s, Memory Used current: 529MB peak: 529MB)
+Running optimization stage 2 on gemm_axi_slave_xmr0 .......
+@W: CL177 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Sharing sequential element s_axi_wready and merging s_axi_awready. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":11:35:11:46|Input port bits 11 to 8 of s_axi_awaddr[15:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":27:35:27:46|Input port bits 11 to 10 of s_axi_araddr[15:0] are unused. Assign logic for all port bits or change the input port size.
+@N: CL159 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":17:35:17:45|Input s_axi_wstrb is unused.
+Finished optimization stage 2 on gemm_axi_slave_xmr0 (CPU Time 0h:00m:00s, Memory Used current: 534MB peak: 534MB)
+Running optimization stage 2 on gemm_pe .......
+Finished optimization stage 2 on gemm_pe (CPU Time 0h:00m:00s, Memory Used current: 535MB peak: 535MB)
+Running optimization stage 2 on gemm_systolic_core_16s_46s .......
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[10] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[15] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[16] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[17] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[18] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[19] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[20] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[21] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[22] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[23] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[24] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[25] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[26] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[27] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[28] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[29] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[30] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Optimizing register bit cycle_cnt[31] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":51:4:51:9|Pruning register bits 31 to 6 of cycle_cnt[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Finished optimization stage 2 on gemm_systolic_core_16s_46s (CPU Time 0h:00m:00s, Memory Used current: 535MB peak: 535MB)
+Running optimization stage 2 on CLKINT .......
+Finished optimization stage 2 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 535MB peak: 535MB)
+
+For a summary of runtime per design unit, please see file:
+==========================================================
+@L: /home/ubuntu/GEMMCNN/synthesis/synwork/layer0.duruntime
+
+
+
+At c_ver Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 535MB peak: 535MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
+
+Process completed successfully.
+# Wed Aug 26 23:28:02 2026
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu 24.04.4 LTS
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234524
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202603synp1, Build 0R, Built May 25 2026 08:44:22, @6660603
+
+@N|Running in 64-bit mode
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 258MB peak: 259MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Wed Aug 26 23:28:03 2026
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_top_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 97MB peak: 97MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
+
+Process completed successfully.
+# Wed Aug 26 23:28:03 2026
+
+###########################################################]

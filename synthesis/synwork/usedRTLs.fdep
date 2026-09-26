@@ -1,0 +1,8 @@
+#List of actual used RTLs.
+
+File                                                   Type     IN_PROJECT/INCLUDED/LIBRARY
+
+"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v"           verilog                      IN PROJECT
+"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v"     verilog                      IN PROJECT
+"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v"                verilog                      IN PROJECT
+"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v"       verilog                      IN PROJECT

@@ -1,0 +1,30 @@
+#OPTIONS:"|-layerid|0|-orig_srs|/home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_comp.srs|-top|gemm_dma_top|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-I|/home/ubuntu/GEMMCNN/synthesis/|-I|/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib|-sysv|-devicelib|/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/linux_a_64/c_ver":1779731227
+#CUR:"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v":1779730809
+#CUR:"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":1779731175
+#CUR:"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/umr_capim.v":1779731175
+#CUR:"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/scemi_objects.v":1779731175
+#CUR:"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/scemi_pipes.svh":1779731175
+#CUR:"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":1790444127
+#CUR:"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":1790444127
+#CUR:"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":1790444127
+#CUR:"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":1790444127
+0			"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v" verilog
+1			"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v" verilog
+2			"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v" verilog
+3			"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v" verilog
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 0 1
+3 2
+#Dependency Lists(Users Of)
+0 2
+1 2
+2 3
+3 -1
+#Design Unit to File Association
+module work gemm_dma_top 3
+module work gemm_systolic_core 2
+module work gemm_skew_buffer 1
+module work gemm_pe 0

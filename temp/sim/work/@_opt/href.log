@@ -1,0 +1,3 @@
+BEGIN 1:gemm_dma_top:fast:work
+    hw_cycle_cnt :  1:tb_gemm_dma:fast:work
+END 

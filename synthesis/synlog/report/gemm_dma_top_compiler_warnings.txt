@@ -1,0 +1,50 @@
+@W: CG133 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":16:14:16:14|Object d is declared but not assigned. Either assign a value or remove the declaration.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Optimizing register bit s_axi_bresp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Optimizing register bit s_axi_bresp[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":180:4:180:9|Optimizing register bit s_axi_rresp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":180:4:180:9|Optimizing register bit s_axi_rresp[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit dma_err to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_arlen[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_arlen[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_awlen[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Optimizing register bit m_axi_awlen[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 7 to 6 of m_axi_arlen[7:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 7 to 6 of m_axi_awlen[7:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning unused register dma_err. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Pruning unused register s_axi_bresp[1:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":180:4:180:9|Pruning unused register s_axi_rresp[1:0]. Make sure that there are no unused intermediate registers.
+@W: CL177 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":130:4:130:9|Sharing sequential element s_axi_wready and merging s_axi_awready. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 5 to 1 of m_axi_arlen[5:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":279:4:279:9|Pruning register bits 5 to 1 of m_axi_awlen[5:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":13:40:13:51|Input port bits 31 to 16 of s_axi_awaddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":13:40:13:51|Input port bits 11 to 8 of s_axi_awaddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":26:40:26:51|Input port bits 31 to 16 of s_axi_araddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"/home/ubuntu/GEMMCNN/hdl/gemm_dma_top.v":26:40:26:51|Input port bits 11 to 10 of s_axi_araddr[31:0] are unused. Assign logic for all port bits or change the input port size.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[10] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[15] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[16] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[17] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[18] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[19] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[20] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[21] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[22] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[23] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[24] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[25] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[26] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[27] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[28] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[29] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[30] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Optimizing register bit cycle_cnt[31] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":68:4:68:9|Pruning register bits 31 to 6 of cycle_cnt[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+

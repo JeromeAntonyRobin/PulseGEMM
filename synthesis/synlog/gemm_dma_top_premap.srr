@@ -1,0 +1,242 @@
+# Sat Sep 26 23:05:41 2026
+
+
+Copyright (C) 1994-2026 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Y-2026.03M
+Install: /home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro
+OS: Ubuntu Core 26
+Hostname: ubuntu
+max virtual memory: unlimited (bytes)
+max user processes: 234516
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys Microchip Technology Pre-mapping, Version map202603act, Build 0R, Built May 25 2026 08:13:29, @6660603
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 344MB peak: 344MB)
+
+
+Start reading file /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_mult.srs (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 360MB peak: 361MB)
+
+
+Done reading skeleton netlist (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 360MB peak: 361MB)
+
+
+Finished reading file /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_mult.srs (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 375MB peak: 375MB)
+
+@A: MF827 |No constraint file specified.
+@L: /home/ubuntu/GEMMCNN/synthesis/gemm_dma_top_scck.rpt 
+See clock summary report "/home/ubuntu/GEMMCNN/synthesis/gemm_dma_top_scck.rpt"
+@N: MF472 |Synthesis running in Automatic Compile Point mode
+@N: MF474 |No compile point is identified in Automatic Compile Point mode
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 375MB peak: 376MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 375MB peak: 376MB)
+
+
+Top level preparation complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 375MB peak: 376MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 375MB peak: 376MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 377MB peak: 377MB)
+
+
+Mapper flow started (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 428MB peak: 428MB)
+
+NConnInternalConnection caching is on
+
+Vector Gate Optimization Enabled: Optimizing  Partial Hanging Logic. 
+
+Library binding complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 428MB peak: 428MB)
+
+
+Premap started (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 428MB peak: 428MB)
+
+
+Start pmux decomp (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 428MB peak: 428MB)
+
+
+End pmux decomp (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 455MB peak: 455MB)
+
+
+End uniquification (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 475MB peak: 475MB)
+
+
+Applied constraints (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+End uniquification (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Applied constraints (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Starting HSTDM IP insertion (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Finished HSTDM IP insertion (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Applied constraints (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Pushing tristates to top (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Started DisTri Cleanup (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+
+Finished DisTri Cleanup (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_253(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_253(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_217(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_216(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_214(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_213(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_191(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_184(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_177(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_142(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_134(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_128(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_124(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_123(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_113(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_106(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_97(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_84(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_83(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_82(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_80(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_77(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_49(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_42(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_35(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_28(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_24(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_19(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_18(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance b_out[7:0] (in view: work.gemm_pe_17(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_4(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":18:4:18:9|Removing sequential instance a_out[7:0] (in view: work.gemm_pe_3(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+
+Cleanup disable tri (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 487MB peak: 487MB)
+
+@N: FP130 |Promoting Net clk on CLKINT  clk 
+@N: FP130 |Promoting Net rst_n_arst on CLKINT  rst_n_arst_0 
+@N: FP130 |Promoting Net core_clear_acc on CLKINT  core_clear_acc_0 
+
+Finished Clock Domain Crossing Analysis (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 498MB peak: 498MB)
+
+
+Added ummark clocks (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Start resource management (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+@N: FX1184 |Applying syn_allowed_resources blockrams=308,dsps=292 on top level netlist gemm_dma_top 
+
+Threading nets with syn_probe to top (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+
+Clock Summary
+******************
+
+          Start                Requested     Requested     Clock        Clock                                          Clock
+Level     Clock                Frequency     Period        Type         Group                                          Load 
+----------------------------------------------------------------------------------------------------------------------------
+0 -       gemm_dma_top|clk     50.0 MHz      20.000        inferred     Inferred_clkgroup_0, Inferred_clkgroup_0_1     14108
+============================================================================================================================
+
+
+
+Clock Load Summary
+***********************
+
+                     Clock     Source        Clock Pin         Non-clock Pin     Non-clock Pin
+Clock                Load      Pin           Seq Example       Seq Example       Comb Example 
+----------------------------------------------------------------------------------------------
+gemm_dma_top|clk     14108     clk(port)     state[10:0].C     -                 clk.A(CLKINT)
+==============================================================================================
+
+@W: MT530 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found inferred clock gemm_dma_top|clk which controls 14108 sequential elements including u_core.u_skew.GEN_ROW_SKEW_3_\.SKEW_N\.delay_pipe_2__7_. This clock has no specified timing constraint which may adversely impact design performance. 
+
+
+Finished printing clock summary (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Start design refolding (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Finished design refolding (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+@N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
+
+Uniquify modules across compile points (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Writing premap.srd (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Start reloading srd (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Finished reloading srd (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+Finished Pre Mapping Phase.
+
+Start writing sap file (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+@N: BN225 |Writing default property annotation file /home/ubuntu/GEMMCNN/synthesis/gemm_dma_top.sap.
+
+Finished writing sap file (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Starting constraint checker (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+Encoding state machine state[10:0] (in view: work.gemm_dma_top(verilog))
+original code -> new code
+   0000 -> 00000000001
+   0001 -> 00000000010
+   0010 -> 00000000100
+   0011 -> 00000001000
+   0100 -> 00000010000
+   0101 -> 00000100000
+   0110 -> 00001000000
+   0111 -> 00010000000
+   1000 -> 00100000000
+   1001 -> 01000000000
+   1010 -> 10000000000
+
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 498MB peak: 498MB)
+
+
+Finished constraint checker (Real Time elapsed 0h:00m:28s; CPU Time elapsed 0h:00m:28s; Memory used current: 499MB peak: 504MB)
+
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:28s; CPU Time elapsed 0h:00m:28s; Memory used current: 411MB peak: 504MB)
+
+Process took 0h:00m:28s realtime, 0h:00m:28s cputime
+# Sat Sep 26 23:06:09 2026
+
+###########################################################]

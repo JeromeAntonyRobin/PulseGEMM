@@ -1,0 +1,44 @@
+Resource Usage Report for gemm_dma_top 
+
+Mapping to part: mpfs095tfcvg784-1
+Cell usage:
+CLKINT          4 uses
+CFG1           32 uses
+CFG2           4759 uses
+CFG3           8152 uses
+CFG4           1646 uses
+
+Carry cells:
+ARI1            65 uses - used for arithmetic functions
+ARI1            16323 uses - used for Wide-Mux implementation
+Total ARI1      16388 uses
+
+
+Sequential Cells: 
+SLE            19897 uses
+SLE_INIT       76 uses - used for Seqshift to URAM mapping
+Total SLE          19973 uses
+
+DSP Blocks:  256 of 292 (87%)
+ MACC_PA:       256 MultAdds
+
+I/O ports: 349
+I/O primitives: 303
+INBUF          103 uses
+OUTBUF         200 uses
+
+
+Global Clock Buffers: 4
+
+Total LUTs:    30977
+
+Extra resources required for RAM and MACC_PA interface logic during P&R:
+
+RAM64X12 Interface Logic : SLEs = 264; LUTs = 264;
+RAM1K20  Interface Logic : SLEs = 0; LUTs = 0;
+MACC_PA     Interface Logic : SLEs = 9216; LUTs = 9216;
+MACC_PA_BC_ROM     Interface Logic : SLEs = 0; LUTs = 0;
+
+Total number of SLEs after P&R:  19973 + 264 + 0 + 9216 = 29453;
+Total number of LUTs after P&R:  30977 + 264 + 0 + 9216 = 40457;
+

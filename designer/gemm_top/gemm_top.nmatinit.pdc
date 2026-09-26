@@ -1,0 +1,59 @@
+# Microchip Physical design constraints file
+
+# Version: 2026.1 2026.1.0.17
+
+# Design Name: gemm_top 
+
+# Input Netlist Format: EDIF 
+
+# Family: PolarFireSoC , Die: MPFS095T , Package: FCSG325 , Speed grade: -1 
+
+# Date generated: Wed Aug 26 23:28:49 2026 
+
+
+#
+# I/O constraints
+#
+
+set_io -port_name clk -DIRECTION INPUT -pin_name W20 -fixed false
+set_io -port_name led_busy -DIRECTION OUTPUT -pin_name T20 -fixed false
+set_io -port_name led_done -DIRECTION OUTPUT -pin_name U21 -fixed false
+set_io -port_name rst_n -DIRECTION INPUT -pin_name T21 -fixed false
+
+#
+# Core cell constraints
+#
+
+set_location -inst_name s_axi_wdata\[0\] -fixed false -x 2011 -y 139
+set_location -inst_name u_gemm_axi/s_axi_arready8 -fixed false -x 2005 -y 138
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1\[5\] -fixed false -x 2022 -y 139
+set_location -inst_name u_gemm_axi/state_ns_0_a3\[1\] -fixed false -x 2010 -y 138
+set_location -inst_name u_gemm_axi/core_inst/un1_cycle_cnt_1lto4_RNI5MACH -fixed false -x 2026 -y 138
+set_location -inst_name u_gemm_axi/s_axi_awready -fixed false -x 2007 -y 139
+set_location -inst_name s_axi_wvalid -fixed false -x 2012 -y 139
+set_location -inst_name s_axi_arvalid_RNO -fixed false -x 2004 -y 138
+set_location -inst_name u_gemm_axi/core_inst/busy_RNO -fixed false -x 2024 -y 138
+set_location -inst_name u_gemm_axi/core_inst/un1_busy10 -fixed false -x 2025 -y 138
+set_location -inst_name u_clk_buf/U0_RGB1 -fixed false -x 1607 -y 150
+set_location -inst_name u_gemm_axi/s_axi_arready_RNI05B9H -fixed false -x 2009 -y 138
+set_location -inst_name u_gemm_axi/ctrl_reg_8\[0\] -fixed false -x 2006 -y 138
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1\[1\] -fixed false -x 2018 -y 139
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1\[4\] -fixed false -x 2021 -y 139
+set_location -inst_name u_gemm_axi/state_s0_0_a2 -fixed false -x 2011 -y 138
+set_location -inst_name u_gemm_axi/core_inst/done_Z -fixed false -x 2026 -y 139
+set_location -inst_name u_gemm_axi/ctrl_reg\[0\] -fixed false -x 2006 -y 139
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1\[3\] -fixed false -x 2020 -y 139
+set_location -inst_name u_gemm_axi/core_inst/un1_cycle_cnt_1lto4 -fixed false -x 2023 -y 138
+set_location -inst_name state\[0\] -fixed false -x 2009 -y 139
+set_location -inst_name s_axi_arvalid -fixed false -x 2004 -y 139
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1\[0\] -fixed false -x 2017 -y 139
+set_location -inst_name u_clk_buf -fixed false -x 1171 -y 0
+set_location -inst_name state\[1\] -fixed false -x 2010 -y 139
+set_location -inst_name u_gemm_axi/s_axi_arready -fixed false -x 2005 -y 139
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1\[2\] -fixed false -x 2019 -y 139
+set_location -inst_name u_gemm_axi/s_axi_awready_RNI9V9H7 -fixed false -x 2012 -y 138
+set_location -inst_name u_gemm_axi/s_axi_awready6 -fixed false -x 2007 -y 138
+set_location -inst_name u_gemm_axi/core_inst/busy_Z -fixed false -x 2024 -y 139
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1_s_12 -fixed false -x 2016 -y 138
+set_location -inst_name u_clk_buf/U0_IOBA -fixed false -x 727 -y 215
+set_location -inst_name u_gemm_axi/core_inst/cycle_cnt_1_s_12_CC_0 -fixed false -x 2016 -y 140

@@ -1,0 +1,27 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N: CG1349 :	| Running Verilog Compiler in System Verilog mode
+@N|stack limit increased to max
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/generic/acg5.v":489:7:489:12|Synthesizing module CLKINT in library work.
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_systolic_core.v":3:7:3:24|Synthesizing module gemm_systolic_core in library work.
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_pe.v":3:7:3:13|Synthesizing module gemm_pe in library work.
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":3:7:3:20|Synthesizing module gemm_axi_slave in library work.
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":9:7:9:22|Synthesizing module syn_hyper_source in library __hyper__lib__.
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":9:7:9:22|Synthesizing module syn_hyper_source in library __hyper__lib__.
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_b_ram, depth=64, width=32
+@N: CL134 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":53:4:53:9|Found RAM mat_a_ram, depth=64, width=32
+@N: CG364 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":3:7:3:14|Synthesizing module gemm_top in library work.
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":16:7:16:23|Synthesizing module syn_hyper_connect in library __hyper__lib__.
+@N: CG364 :"/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Synplify_Pro/lib/vlog/hypermods.v":16:7:16:23|Synthesizing module syn_hyper_connect in library __hyper__lib__.
+@N: CL201 :"/home/ubuntu/GEMMCNN/hdl/gemm_top.v":38:4:38:9|Trying to extract state machine for register state.
+@N: CL159 :"/home/ubuntu/GEMMCNN/hdl/gemm_axi_slave.v":17:35:17:45|Input s_axi_wstrb is unused.
+@N|Running in 64-bit mode
+
