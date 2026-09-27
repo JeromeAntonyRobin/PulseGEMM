@@ -33,44 +33,45 @@ def read_available():
     time.sleep(0.3)
     return ser.read(ser.in_waiting).decode('utf-8', errors='ignore')
 
-print("[*] Waking up console and logging in...")
+print("[*] Waking up console and waiting for boot/login prompt (up to 60s)...")
 ser.write(b"\n\n\n")
-time.sleep(1.5)
-out = read_available()
+deadline = time.time() + 60
+state = "booting"
+out_buffer = ""
 
-# --- U-Boot Recovery ---
-if "RISC-V #" in out or ("=>" in out and "login" not in out.lower()):
-    print("    Detected U-Boot prompt! Sending 'boot' to start Linux...")
-    ser.write(b"boot\n")
-    print("    Waiting up to 60s for Linux to boot...")
-    deadline = time.time() + 60
-    linux_up = False
-    while time.time() < deadline:
-        time.sleep(2)
-        chunk = read_available()
-        if chunk:
-            sys.stdout.write(chunk)
-            sys.stdout.flush()
-        out += chunk
-        if "login:" in out.lower() or ("root@" in out and "#" in out):
-            linux_up = True
-            break
-    if not linux_up:
-        print("ERROR: Linux did not come up after boot command. Aborting.")
-        ser.close()
-        sys.exit(1)
-
-# --- Login if needed ---
-if "login:" in out.lower():
-    print("    Detected login prompt, sending 'root'...")
-    ser.write(b"root\n")
-    time.sleep(1)
-    out = read_available()
-    if "password:" in out.lower():
+while time.time() < deadline:
+    chunk = read_available()
+    if chunk:
+        sys.stdout.write(chunk)
+        sys.stdout.flush()
+        out_buffer += chunk
+    
+    out_lower = out_buffer.lower()
+    if "login:" in out_lower:
+        print("\n    Detected login prompt, sending 'root'...")
+        ser.write(b"root\n")
+        time.sleep(1)
+        out_buffer = ""
+    elif "password:" in out_lower:
         print("    Detected password prompt, sending 'disco'...")
         ser.write(b"disco\n")
         time.sleep(1)
-        ser.read(ser.in_waiting)
+        out_buffer = ""
+    elif "root@" in out_lower and "#" in out_lower:
+        print("\n    Logged into Linux as root!")
+        state = "linux_ready"
+        break
+    elif "risc-v #" in out_lower or "=>" in out_lower:
+        if "login" not in out_lower:
+            print("\n    Detected U-Boot prompt! Sending 'boot' to start Linux...")
+            ser.write(b"boot\n")
+            time.sleep(2)
+            out_buffer = "" # reset and keep waiting for login
+
+if state != "linux_ready":
+    print("\nERROR: Failed to reach Linux root prompt. Aborting.")
+    ser.close()
+    sys.exit(1)
 
 # --- Already logged in (root@...) - just Ctrl-C to clear any running cmd ---
 ser.write(b"\x03\x03")
