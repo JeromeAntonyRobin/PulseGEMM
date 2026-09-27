@@ -29,27 +29,55 @@ def send_cmd(cmd, delay=0.5):
     while ser.in_waiting:
         ser.read(ser.in_waiting)
 
+def read_available():
+    time.sleep(0.3)
+    return ser.read(ser.in_waiting).decode('utf-8', errors='ignore')
+
 print("[*] Waking up console and logging in...")
 ser.write(b"\n\n\n")
-time.sleep(1)
-out = ser.read(ser.in_waiting).decode('utf-8', errors='ignore')
+time.sleep(1.5)
+out = read_available()
 
+# --- U-Boot Recovery ---
+if "RISC-V #" in out or ("=>" in out and "login" not in out.lower()):
+    print("    Detected U-Boot prompt! Sending 'boot' to start Linux...")
+    ser.write(b"boot\n")
+    print("    Waiting up to 60s for Linux to boot...")
+    deadline = time.time() + 60
+    linux_up = False
+    while time.time() < deadline:
+        time.sleep(2)
+        chunk = read_available()
+        if chunk:
+            sys.stdout.write(chunk)
+            sys.stdout.flush()
+        out += chunk
+        if "login:" in out.lower() or ("root@" in out and "#" in out):
+            linux_up = True
+            break
+    if not linux_up:
+        print("ERROR: Linux did not come up after boot command. Aborting.")
+        ser.close()
+        sys.exit(1)
+
+# --- Login if needed ---
 if "login:" in out.lower():
     print("    Detected login prompt, sending 'root'...")
     ser.write(b"root\n")
     time.sleep(1)
-    out = ser.read(ser.in_waiting).decode('utf-8', errors='ignore')
+    out = read_available()
     if "password:" in out.lower():
         print("    Detected password prompt, sending 'disco'...")
         ser.write(b"disco\n")
         time.sleep(1)
         ser.read(ser.in_waiting)
-    
-ser.write(b"\x03\x03") # Ctrl-C
+
+# --- Already logged in (root@...) - just Ctrl-C to clear any running cmd ---
+ser.write(b"\x03\x03")
 time.sleep(0.5)
 ser.read(ser.in_waiting)
 
-print(f"[*] Cleaning old files on board...")
+print("[*] Cleaning old files on board...")
 send_cmd(f"rm -f {bin_name} app.b64")
 
 print("[*] Starting file transfer (with strict flow control)...")
@@ -68,7 +96,7 @@ for i in range(total_chunks):
 
 print("[*] Finalizing file...")
 time.sleep(0.5)
-ser.write(b"\x04") # Ctrl-D
+ser.write(b"\x04")  # Ctrl-D (EOF)
 time.sleep(1.0)
 while ser.in_waiting:
     ser.read(ser.in_waiting)
@@ -83,12 +111,23 @@ print("\n" + "="*65)
 print(f"             EXECUTION OUTPUT ({bin_name})")
 print("="*65)
 
-t_end = time.time() + 15.0
+t_end = time.time() + 90.0   # 90s window — plenty for LeNet + HW
+last_output_t = time.time()
 while time.time() < t_end:
     if ser.in_waiting:
         out = ser.read(ser.in_waiting).decode('utf-8', errors='ignore')
         sys.stdout.write(out)
         sys.stdout.flush()
+        last_output_t = time.time()
+        # Early exit: program finished and shell prompt returned
+        if "root@" in out and "#" in out:
+            time.sleep(0.5)
+            if ser.in_waiting:
+                sys.stdout.write(ser.read(ser.in_waiting).decode('utf-8', errors='ignore'))
+            break
+    elif time.time() - last_output_t > 40.0:
+        print("\n[WARN] No output for 40s — program may be hung.")
+        break
     time.sleep(0.1)
 
 print("\n" + "="*65)
