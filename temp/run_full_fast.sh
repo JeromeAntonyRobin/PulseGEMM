@@ -4,4 +4,9 @@ export LD_LIBRARY_PATH=/home/ubuntu/GEMMCNN/temp/lib/32/lib/i386-linux-gnu:/home
 export LM_LICENSE_FILE=1702@ubuntu
 export SNPSLMD_LICENSE_FILE=1702@ubuntu
 cd /home/ubuntu/GEMMCNN/temp/ref_design
-/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/bin64/libero SCRIPT:MPFS_DISCOVERY_KIT_REFERENCE_DESIGN.tcl SCRIPT_ARGS:"EXPORT_FPE:."
+
+echo "--- RUNNING SYNTHESIS ---"
+/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/bin64/libero SCRIPT:/home/ubuntu/GEMMCNN/temp/run_synth.tcl || exit 1
+
+echo "--- RUNNING PLACE & ROUTE ---"
+/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/bin64/libero SCRIPT:/home/ubuntu/GEMMCNN/temp/run_pr.tcl || exit 1
