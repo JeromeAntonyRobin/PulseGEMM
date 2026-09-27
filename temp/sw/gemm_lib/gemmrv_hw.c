@@ -5,11 +5,7 @@
 
 static int mem_fd = -1;
 static volatile uint32_t *gemm_regs = NULL;
-static volatile uint64_t *mat_a_dma = NULL;
-static volatile uint64_t *mat_b_dma = NULL;
-static volatile uint64_t *mat_c_dma = NULL;
-
-static uint32_t total_hw_cycles_accum = 0;
+static uint8_t *ddr_base_ptr = NULL;
 
 static void *map_physical(int fd, off_t phys_addr, size_t size) {
     off_t page_base = phys_addr & ~(PAGE_SIZE - 1);
@@ -29,21 +25,14 @@ int gemmrv_init(void) {
     }
 
     gemm_regs = (volatile uint32_t *)map_physical(mem_fd, GEMM_REG_BASE_PHYS, PAGE_SIZE);
-    mat_a_dma = (volatile uint64_t *)map_physical(mem_fd, MATRIX_A_PHYS, PAGE_SIZE);
-    mat_b_dma = (volatile uint64_t *)map_physical(mem_fd, MATRIX_B_PHYS, PAGE_SIZE);
-    mat_c_dma = (volatile uint64_t *)map_physical(mem_fd, MATRIX_C_PHYS, PAGE_SIZE);
+    // Map 32MB DDR workspace starting at DDR_BASE_PHYS
+    ddr_base_ptr = (uint8_t *)map_physical(mem_fd, DDR_BASE_PHYS, 32 * 1024 * 1024);
 
-    if (!gemm_regs || !mat_a_dma || !mat_b_dma || !mat_c_dma) {
+    if (!gemm_regs || !ddr_base_ptr) {
         fprintf(stderr, "[GEMMRV] mmap failed!\n");
         return -1;
     }
 
-    // Pre-program DMA base addresses
-    gemm_regs[REG_SRC_A] = (uint32_t)MATRIX_A_PHYS;
-    gemm_regs[REG_SRC_B] = (uint32_t)MATRIX_B_PHYS;
-    gemm_regs[REG_DST_C] = (uint32_t)MATRIX_C_PHYS;
-
-    total_hw_cycles_accum = 0;
     return 0;
 }
 
@@ -55,59 +44,50 @@ void gemmrv_close(void) {
 }
 
 void hw_reset_perf_counters(void) {
-    total_hw_cycles_accum = 0;
+    if (gemm_regs) {
+        gemm_regs[REG_CTRL] = (1 << 3); // Reset perf counters
+    }
+}
+
+void hw_read_perf_breakdown(uint32_t out[4]) {
+    if (gemm_regs) {
+        out[0] = gemm_regs[REG_PERF_FETCH_A];
+        out[1] = gemm_regs[REG_PERF_FETCH_B];
+        out[2] = gemm_regs[REG_PERF_COMPUTE];
+        out[3] = gemm_regs[REG_PERF_STORE_C];
+    }
 }
 
 uint32_t hw_get_perf_cycles(void) {
-    return total_hw_cycles_accum;
+    if (!gemm_regs) return 0;
+    return gemm_regs[REG_PERF_FETCH_A] + gemm_regs[REG_PERF_FETCH_B] + 
+           gemm_regs[REG_PERF_COMPUTE] + gemm_regs[REG_PERF_STORE_C];
 }
 
-// Low-level hardware 16x16 tile execution
-static inline void hw_tile_16x16(const int8_t* A_tile_ptr, int stride_A, int tile_M, int tile_K,
-                                 const int8_t* B_tile_ptr, int stride_B, int tile_N,
-                                 int32_t c_acc[HW_TILE_SIZE][HW_TILE_SIZE]) {
-    // 1. Pack Matrix A (16x16) into 64-bit spaced DDR words with bounds padding
-    for (int r = 0; r < HW_TILE_SIZE; r++) {
-        for (int c = 0; c < HW_TILE_SIZE; c += 4) {
-            uint32_t word = 0;
-            if (r < tile_M) {
-                uint8_t b0 = (c + 0 < tile_K) ? (uint8_t)A_tile_ptr[r * stride_A + (c + 0)] : 0;
-                uint8_t b1 = (c + 1 < tile_K) ? (uint8_t)A_tile_ptr[r * stride_A + (c + 1)] : 0;
-                uint8_t b2 = (c + 2 < tile_K) ? (uint8_t)A_tile_ptr[r * stride_A + (c + 2)] : 0;
-                uint8_t b3 = (c + 3 < tile_K) ? (uint8_t)A_tile_ptr[r * stride_A + (c + 3)] : 0;
-                word = b0 | (b1 << 8) | (b2 << 16) | (b3 << 24);
-            }
-            mat_a_dma[(r * HW_TILE_SIZE + c) / 4] = (uint64_t)word;
-        }
-    }
+// Low-level hardware 2D strided tile execution (Zero CPU repacking!)
+static inline void hw_gemm_tile(uint32_t phys_A, uint32_t phys_B, uint32_t phys_C,
+                                int stride_A, int stride_B, int stride_C,
+                                int tile_M, int tile_K, int tile_N,
+                                int clear, int store) {
+    gemm_regs[REG_SRC_A]    = phys_A;
+    gemm_regs[REG_SRC_B]    = phys_B;
+    gemm_regs[REG_DST_C]    = phys_C;
+    gemm_regs[REG_STRIDE_A] = (uint32_t)stride_A;
+    gemm_regs[REG_STRIDE_B] = (uint32_t)stride_B;
+    gemm_regs[REG_STRIDE_C] = (uint32_t)stride_C;
+    gemm_regs[REG_BOUNDS]   = ((tile_N & 0xFF) << 24) | ((tile_M & 0xFF) << 16) | (tile_K & 0xFFFF);
 
-    // 2. Pack Matrix B (16x16) into 64-bit spaced DDR words with bounds padding
-    for (int r = 0; r < HW_TILE_SIZE; r++) {
-        for (int c = 0; c < HW_TILE_SIZE; c += 4) {
-            uint32_t word = 0;
-            if (r < tile_K) {
-                uint8_t b0 = (c + 0 < tile_N) ? (uint8_t)B_tile_ptr[r * stride_B + (c + 0)] : 0;
-                uint8_t b1 = (c + 1 < tile_N) ? (uint8_t)B_tile_ptr[r * stride_B + (c + 1)] : 0;
-                uint8_t b2 = (c + 2 < tile_N) ? (uint8_t)B_tile_ptr[r * stride_B + (c + 2)] : 0;
-                uint8_t b3 = (c + 3 < tile_N) ? (uint8_t)B_tile_ptr[r * stride_B + (c + 3)] : 0;
-                word = b0 | (b1 << 8) | (b2 << 16) | (b3 << 24);
-            }
-            mat_b_dma[(r * HW_TILE_SIZE + c) / 4] = (uint64_t)word;
-        }
-    }
+    uint32_t cmd = 1; // start=1
+    if (clear) cmd |= 2; // clear_acc=1
+    if (store) cmd |= 4; // store_c=1
 
-    // 3. Trigger Hardware Accelerator
-    gemm_regs[REG_CTRL] = 0x00000001;
-    while (!(gemm_regs[REG_STATUS] & 0x02)); // Wait for completion
+    asm volatile ("fence" ::: "memory");
+    gemm_regs[REG_CTRL] = cmd;
 
-    total_hw_cycles_accum += gemm_regs[REG_CYCLE_CNT];
+    // Wait for hardware completion (bit 2 is dma_done: {29'd0, dma_done, dma_err, dma_busy})
+    while (!(gemm_regs[REG_STATUS] & 0x04));
 
-    // 4. Accumulate into tile buffer
-    for (int r = 0; r < tile_M; r++) {
-        for (int c = 0; c < tile_N; c++) {
-            c_acc[r][c] += (int32_t)mat_c_dma[r * HW_TILE_SIZE + c];
-        }
-    }
+    asm volatile ("fence" ::: "memory");
 }
 
 void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
@@ -117,30 +97,24 @@ void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
     int K = A->cols;
     int N = B->cols;
 
+    // Convert virtual pointers in the mapped DDR space to physical DDR addresses
+    uint32_t phys_base_A = (uint32_t)(DDR_BASE_PHYS + ((uint8_t*)A->data - ddr_base_ptr));
+    uint32_t phys_base_B = (uint32_t)(DDR_BASE_PHYS + ((uint8_t*)B->data - ddr_base_ptr));
+    uint32_t phys_base_C = (uint32_t)(DDR_BASE_PHYS + ((uint8_t*)C->data - ddr_base_ptr));
+
     for (int m = 0; m < M; m += HW_TILE_SIZE) {
         int tile_M = (M - m < HW_TILE_SIZE) ? (M - m) : HW_TILE_SIZE;
         for (int n = 0; n < N; n += HW_TILE_SIZE) {
             int tile_N = (N - n < HW_TILE_SIZE) ? (N - n) : HW_TILE_SIZE;
 
-            int32_t c_acc[HW_TILE_SIZE][HW_TILE_SIZE] = {0};
+            uint32_t tile_A_addr = phys_base_A + (m * A->stride);
+            uint32_t tile_B_addr = phys_base_B + n;
+            uint32_t tile_C_addr = phys_base_C + ((m * C->stride + n) * sizeof(int32_t));
 
-            for (int k = 0; k < K; k += HW_TILE_SIZE) {
-                int tile_K = (K - k < HW_TILE_SIZE) ? (K - k) : HW_TILE_SIZE;
-
-                const int8_t* A_ptr = &(A->data[m * A->stride + k]);
-                const int8_t* B_ptr = &(B->data[k * B->stride + n]);
-
-                hw_tile_16x16(A_ptr, A->stride, tile_M, tile_K,
-                              B_ptr, B->stride, tile_N,
-                              c_acc);
-            }
-
-            // Write back final accumulated tile into C
-            for (int r = 0; r < tile_M; r++) {
-                for (int c = 0; c < tile_N; c++) {
-                    C->data[(m + r) * C->stride + (n + c)] = c_acc[r][c];
-                }
-            }
+            hw_gemm_tile(tile_A_addr, tile_B_addr, tile_C_addr,
+                         A->stride, B->stride, C->stride,
+                         tile_M, K, tile_N,
+                         1, 1);
         }
     }
 }

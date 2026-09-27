@@ -6,42 +6,23 @@
 #include "gemm_lib/gemmrv_hw.h"
 #include "lenet_weights.h"
 
-// Memory buffers
-static int8_t IMAGE_BUF[3 * 32 * 32] __attribute__((aligned(32)));
-static int8_t X_UNROLLED[160 * 784] __attribute__((aligned(32))); // Buffer for unrolled im2col
-static int32_t Y_BUF[32 * 784] __attribute__((aligned(32)));      // Output accumulation buffer
-static int8_t FMAP_A[16 * 14 * 14] __attribute__((aligned(32)));   // Feature maps
-static int8_t FMAP_B[16 * 14 * 14] __attribute__((aligned(32)));
-static int8_t WEIGHT_PADDED[160 * 400] __attribute__((aligned(32)));
+// Allocate working buffers directly inside mapped DDR space
+static uint8_t *ddr_work = NULL;
+static int8_t *IMAGE_BUF;
+static int8_t *X_UNROLLED;
+static int32_t *Y_BUF;
+static int8_t *FMAP_A;
+static int8_t *FMAP_B;
+static int8_t *WEIGHT_PADDED;
 
 static inline double get_time_us(struct timespec *start, struct timespec *end) {
     return (end->tv_sec - start->tv_sec) * 1000000.0 + (end->tv_nsec - start->tv_nsec) / 1000.0;
 }
 
 static const char* color_names[23] = {
-    "dark-red",      // 0
-    "white",         // 1
-    "black",         // 2
-    "orange",        // 3
-    "silver-gray",   // 4
-    "dark-blue",     // 5
-    "grass-green",   // 6
-    "red",           // 7
-    "dark-gray",     // 8
-    "gray",          // 9
-    "brown",         // 10
-    "cyan",          // 11
-    "blue",          // 12
-    "champagne",     // 13
-    "dark-brown",    // 14
-    "dark-orange",   // 15
-    "pink",          // 16
-    "lemon-yellow",  // 17
-    "yellow",        // 18
-    "earthy-yellow", // 19
-    "red-orange",    // 20
-    "green",         // 21
-    "dark-green"     // 22
+    "dark-red", "white", "black", "orange", "silver-gray", "dark-blue", "grass-green",
+    "red", "dark-gray", "gray", "brown", "cyan", "blue", "champagne", "dark-brown",
+    "dark-orange", "pink", "lemon-yellow", "yellow", "earthy-yellow", "red-orange", "green", "dark-green"
 };
 
 void pad_and_copy_weights(int8_t* dst, const int8_t* src, int M, int K, int padded_M, int padded_K) {
@@ -134,7 +115,7 @@ typedef struct {
     double im2col_us;
     double gemm_us;
     double pool_relu_us;
-    uint32_t hw_cycles;
+    uint32_t perf[4];
 } layer_stats_t;
 
 int run_inference(int use_hw, layer_stats_t* stats, int32_t* out_scores) {
@@ -294,15 +275,30 @@ int run_inference(int use_hw, layer_stats_t* stats, int32_t* out_scores) {
 
     clock_gettime(CLOCK_MONOTONIC, &end_total);
     stats->total_us = get_time_us(&start_total, &end_total);
-    stats->hw_cycles = hw_get_perf_cycles();
+    hw_read_perf_breakdown(stats->perf);
 
     return best_class;
 }
 
 int main() {
     printf("\n============================================================\n");
-    printf("   Full LeNet-5 CNN Inference on PolarFire SoC FPGA\n");
+    printf("   Full LeNet-5 Inference (2D Strided Zero-Copy HW)\n");
     printf("============================================================\n");
+
+    if (gemmrv_init() < 0) {
+        fprintf(stderr, "Failed to initialize GEMMrv hardware!\n");
+        return 1;
+    }
+
+    int fd = open("/dev/mem", O_RDWR | O_SYNC);
+    ddr_work = (uint8_t *)mmap(NULL, 16 * 1024 * 1024, PROT_READ | PROT_WRITE, MAP_SHARED, fd, DDR_BASE_PHYS);
+
+    IMAGE_BUF     = (int8_t *)(ddr_work + 0x000000);
+    X_UNROLLED    = (int8_t *)(ddr_work + 0x010000);
+    Y_BUF         = (int32_t*)(ddr_work + 0x080000);
+    FMAP_A        = (int8_t *)(ddr_work + 0x180000);
+    FMAP_B        = (int8_t *)(ddr_work + 0x200000);
+    WEIGHT_PADDED = (int8_t *)(ddr_work + 0x280000);
 
     // Initialize mock image (RGB 3x32x32)
     for(int i = 0; i < 3 * 32 * 32; i++) {
@@ -315,7 +311,7 @@ int main() {
     printf("[*] Running Pure Software Baseline Inference...\n");
     int sw_class = run_inference(0, &sw_stats, sw_scores);
 
-    printf("[*] Running Hardware-Accelerated LeNet Inference...\n");
+    printf("[*] Running 2D Strided Zero-Copy HW LeNet Inference...\n");
     hw_reset_perf_counters();
     int hw_class = run_inference(1, &hw_stats, hw_scores);
 
@@ -324,11 +320,9 @@ int main() {
     printf("HW Predicted Class ID : %d (%s)\n", hw_class, color_names[hw_class]);
 
     int max_diff = 0;
-    int mismatches = 0;
     for(int i = 0; i < 23; i++) {
         int diff = abs(hw_scores[i] - sw_scores[i]);
         if(diff > max_diff) max_diff = diff;
-        if(diff > 0) mismatches++;
     }
     printf("Verification          : %s (Max logit diff: %d across 23 classes)\n", 
            (sw_class == hw_class) ? "SUCCESS / MATCH" : "MISMATCH", max_diff);
@@ -342,11 +336,16 @@ int main() {
     printf("-------------------------------------------------------------\n");
     printf("%-20s | %10.1f us | %10.1f us | %8.2fx\n", "TOTAL END-TO-END", sw_stats.total_us, hw_stats.total_us, sw_stats.total_us / hw_stats.total_us);
     
-    double hw_ip_time = (double)hw_stats.hw_cycles / 100.0;
-    printf("HW Pure IP Time       : %.1f us (%u cycles @ 100 MHz)\n", hw_ip_time, hw_stats.hw_cycles);
+    uint32_t total_hw_cycles = hw_stats.perf[0] + hw_stats.perf[1] + hw_stats.perf[2] + hw_stats.perf[3];
+    double hw_ip_time = (double)total_hw_cycles / 100.0;
+    printf("\nHW Cycles Breakdown:\n");
+    printf("  Fetch A: %u | Fetch B: %u | Compute: %u | Store C: %u\n", 
+           hw_stats.perf[0], hw_stats.perf[1], hw_stats.perf[2], hw_stats.perf[3]);
+    printf("Pure GEMM IP Time     : %.1f us (%u cycles @ 100 MHz)\n", hw_ip_time, total_hw_cycles);
     printf("Pure GEMM IP Speedup  : %.2fx\n", sw_stats.gemm_us / hw_ip_time);
     printf("=============================================================\n");
 
     gemmrv_close();
+    close(fd);
     return 0;
 }
