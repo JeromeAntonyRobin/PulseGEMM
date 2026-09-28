@@ -319,12 +319,16 @@ module gemm_dma_top #(
                     ? (({3'd0, tile_M} << 1) - 8'd1)
                     :  ({3'd0, tile_M}        - 8'd1);
 
-    // B-burst: when stride_b == 1 (every row is 1 byte, rows are contiguous)
-    //  Covers FC layer column vectors regardless of tile_N.
-    //  One burst of ceil(K/8) beats fetches all K bytes; byte k → buf_b[k*16+0].
-    wire        b_burst_ok   = (stride_b_reg == 16'd1);
-    // arlen = ceil(cur_tile_k_dma / 8) - 1  (integer: (K-1)/8)
-    wire [7:0]  b_burst_arlen = (cur_tile_k_dma > 5'd8) ? 8'd1 : 8'd0;
+    // B-burst: when stride_b == tile_N (block-interleaved tile in DDR) or stride_b == 1 (1D vector)
+    wire        b_burst_block = (stride_b_reg == {11'd0, tile_N});
+    wire        b_burst_vec   = (stride_b_reg == 16'd1);
+    wire        b_burst_ok    = b_burst_block || b_burst_vec;
+    wire        b_beats_two   = (tile_N > 5'd8);  // 1 or 2 beats per row
+    wire [7:0]  b_burst_arlen = b_burst_block
+                    ? (b_beats_two
+                        ? (({3'd0, cur_tile_k_dma} << 1) - 8'd1)
+                        :  ({3'd0, cur_tile_k_dma}        - 8'd1))
+                    : ((cur_tile_k_dma > 5'd8) ? 8'd1 : 8'd0);
 
     // filled_tiles counter (combinational push/pop, no registered race)
     always @(posedge clk) begin
@@ -677,26 +681,68 @@ module gemm_dma_top #(
 
                 DMA_FETCH_B_BURST_DATA: begin
                     if (m_axi_rvalid && m_axi_rready) begin
-                        // beat 0 → rows 0-7 col 0 (indices 0,16,32,48,64,80,96,112)
-                        // beat 1 → rows 8-15 col 0 (indices 128,144,160,176,192,208,224,240)
                         if (dma_buf_sel == 0) begin
-                            buf_b_ping[dma_beat_cnt[0]*128 +   0] <= m_axi_rdata[7:0];
-                            buf_b_ping[dma_beat_cnt[0]*128 +  16] <= m_axi_rdata[15:8];
-                            buf_b_ping[dma_beat_cnt[0]*128 +  32] <= m_axi_rdata[23:16];
-                            buf_b_ping[dma_beat_cnt[0]*128 +  48] <= m_axi_rdata[31:24];
-                            buf_b_ping[dma_beat_cnt[0]*128 +  64] <= m_axi_rdata[39:32];
-                            buf_b_ping[dma_beat_cnt[0]*128 +  80] <= m_axi_rdata[47:40];
-                            buf_b_ping[dma_beat_cnt[0]*128 +  96] <= m_axi_rdata[55:48];
-                            buf_b_ping[dma_beat_cnt[0]*128 + 112] <= m_axi_rdata[63:56];
+                            if (b_burst_block) begin
+                                if (b_beats_two) begin
+                                    buf_b_ping[dma_beat_cnt*8 + 0] <= m_axi_rdata[7:0];
+                                    buf_b_ping[dma_beat_cnt*8 + 1] <= m_axi_rdata[15:8];
+                                    buf_b_ping[dma_beat_cnt*8 + 2] <= m_axi_rdata[23:16];
+                                    buf_b_ping[dma_beat_cnt*8 + 3] <= m_axi_rdata[31:24];
+                                    buf_b_ping[dma_beat_cnt*8 + 4] <= m_axi_rdata[39:32];
+                                    buf_b_ping[dma_beat_cnt*8 + 5] <= m_axi_rdata[47:40];
+                                    buf_b_ping[dma_beat_cnt*8 + 6] <= m_axi_rdata[55:48];
+                                    buf_b_ping[dma_beat_cnt*8 + 7] <= m_axi_rdata[63:56];
+                                end else begin
+                                    buf_b_ping[dma_beat_cnt*16 + 0] <= m_axi_rdata[7:0];
+                                    buf_b_ping[dma_beat_cnt*16 + 1] <= m_axi_rdata[15:8];
+                                    buf_b_ping[dma_beat_cnt*16 + 2] <= m_axi_rdata[23:16];
+                                    buf_b_ping[dma_beat_cnt*16 + 3] <= m_axi_rdata[31:24];
+                                    buf_b_ping[dma_beat_cnt*16 + 4] <= m_axi_rdata[39:32];
+                                    buf_b_ping[dma_beat_cnt*16 + 5] <= m_axi_rdata[47:40];
+                                    buf_b_ping[dma_beat_cnt*16 + 6] <= m_axi_rdata[55:48];
+                                    buf_b_ping[dma_beat_cnt*16 + 7] <= m_axi_rdata[63:56];
+                                end
+                            end else begin
+                                buf_b_ping[dma_beat_cnt[0]*128 +   0] <= m_axi_rdata[7:0];
+                                buf_b_ping[dma_beat_cnt[0]*128 +  16] <= m_axi_rdata[15:8];
+                                buf_b_ping[dma_beat_cnt[0]*128 +  32] <= m_axi_rdata[23:16];
+                                buf_b_ping[dma_beat_cnt[0]*128 +  48] <= m_axi_rdata[31:24];
+                                buf_b_ping[dma_beat_cnt[0]*128 +  64] <= m_axi_rdata[39:32];
+                                buf_b_ping[dma_beat_cnt[0]*128 +  80] <= m_axi_rdata[47:40];
+                                buf_b_ping[dma_beat_cnt[0]*128 +  96] <= m_axi_rdata[55:48];
+                                buf_b_ping[dma_beat_cnt[0]*128 + 112] <= m_axi_rdata[63:56];
+                            end
                         end else begin
-                            buf_b_pong[dma_beat_cnt[0]*128 +   0] <= m_axi_rdata[7:0];
-                            buf_b_pong[dma_beat_cnt[0]*128 +  16] <= m_axi_rdata[15:8];
-                            buf_b_pong[dma_beat_cnt[0]*128 +  32] <= m_axi_rdata[23:16];
-                            buf_b_pong[dma_beat_cnt[0]*128 +  48] <= m_axi_rdata[31:24];
-                            buf_b_pong[dma_beat_cnt[0]*128 +  64] <= m_axi_rdata[39:32];
-                            buf_b_pong[dma_beat_cnt[0]*128 +  80] <= m_axi_rdata[47:40];
-                            buf_b_pong[dma_beat_cnt[0]*128 +  96] <= m_axi_rdata[55:48];
-                            buf_b_pong[dma_beat_cnt[0]*128 + 112] <= m_axi_rdata[63:56];
+                            if (b_burst_block) begin
+                                if (b_beats_two) begin
+                                    buf_b_pong[dma_beat_cnt*8 + 0] <= m_axi_rdata[7:0];
+                                    buf_b_pong[dma_beat_cnt*8 + 1] <= m_axi_rdata[15:8];
+                                    buf_b_pong[dma_beat_cnt*8 + 2] <= m_axi_rdata[23:16];
+                                    buf_b_pong[dma_beat_cnt*8 + 3] <= m_axi_rdata[31:24];
+                                    buf_b_pong[dma_beat_cnt*8 + 4] <= m_axi_rdata[39:32];
+                                    buf_b_pong[dma_beat_cnt*8 + 5] <= m_axi_rdata[47:40];
+                                    buf_b_pong[dma_beat_cnt*8 + 6] <= m_axi_rdata[55:48];
+                                    buf_b_pong[dma_beat_cnt*8 + 7] <= m_axi_rdata[63:56];
+                                end else begin
+                                    buf_b_pong[dma_beat_cnt*16 + 0] <= m_axi_rdata[7:0];
+                                    buf_b_pong[dma_beat_cnt*16 + 1] <= m_axi_rdata[15:8];
+                                    buf_b_pong[dma_beat_cnt*16 + 2] <= m_axi_rdata[23:16];
+                                    buf_b_pong[dma_beat_cnt*16 + 3] <= m_axi_rdata[31:24];
+                                    buf_b_pong[dma_beat_cnt*16 + 4] <= m_axi_rdata[39:32];
+                                    buf_b_pong[dma_beat_cnt*16 + 5] <= m_axi_rdata[47:40];
+                                    buf_b_pong[dma_beat_cnt*16 + 6] <= m_axi_rdata[55:48];
+                                    buf_b_pong[dma_beat_cnt*16 + 7] <= m_axi_rdata[63:56];
+                                end
+                            end else begin
+                                buf_b_pong[dma_beat_cnt[0]*128 +   0] <= m_axi_rdata[7:0];
+                                buf_b_pong[dma_beat_cnt[0]*128 +  16] <= m_axi_rdata[15:8];
+                                buf_b_pong[dma_beat_cnt[0]*128 +  32] <= m_axi_rdata[23:16];
+                                buf_b_pong[dma_beat_cnt[0]*128 +  48] <= m_axi_rdata[31:24];
+                                buf_b_pong[dma_beat_cnt[0]*128 +  64] <= m_axi_rdata[39:32];
+                                buf_b_pong[dma_beat_cnt[0]*128 +  80] <= m_axi_rdata[47:40];
+                                buf_b_pong[dma_beat_cnt[0]*128 +  96] <= m_axi_rdata[55:48];
+                                buf_b_pong[dma_beat_cnt[0]*128 + 112] <= m_axi_rdata[63:56];
+                            end
                         end
 
                         if (m_axi_rlast || dma_beat_cnt == b_burst_arlen) begin

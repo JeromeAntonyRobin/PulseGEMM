@@ -45,7 +45,6 @@ int test_matrix_shape(int M, int K, int N, int test_id) {
     int8_t* W_pad = (int8_t*)(ddr_work + 0x800000);
     int32_t* Y_sw = malloc(M * N * sizeof(int32_t));
     
-    // Seed pseudo-random generator
     srand(test_id * 100 + 7);
     for(int i=0; i<M*K; i++) W_src[i] = (rand() % 255) - 128;
     for(int i=0; i<K*N; i++) X_src[i] = (rand() % 255) - 128;
@@ -76,13 +75,11 @@ int test_matrix_shape(int M, int K, int N, int test_id) {
 
     int errors = 0;
     int max_diff = 0;
-    int64_t total_diff = 0;
 
     for (int i = 0; i < M * N; i++) {
         int diff = abs(Y_sw[i] - Y_hw[i]);
         if (diff > 0) {
             errors++;
-            total_diff += diff;
             if (diff > max_diff) max_diff = diff;
         }
     }
@@ -99,6 +96,59 @@ int test_matrix_shape(int M, int K, int N, int test_id) {
     return errors;
 }
 
+int test_b_burst_shape(int M, int K, int N) {
+    uint8_t* ddr_work = gemmrv_get_ddr_base();
+    
+    int8_t* W_src = malloc(M * K);
+    int8_t* X_src = malloc(K * N);
+    int8_t* W_pad = (int8_t*)(ddr_work + 0x000000);
+    int8_t* X_pad = (int8_t*)(ddr_work + 0x200000);
+    int32_t* Y_hw = (int32_t*)(ddr_work + 0x400000);
+    int32_t* Y_sw = malloc(M * N * sizeof(int32_t));
+    
+    srand(42);
+    for(int i=0; i<M*K; i++) W_src[i] = (rand() % 255) - 128;
+    for(int i=0; i<K*N; i++) X_src[i] = (rand() % 255) - 128;
+    memset(Y_hw, 0, M * N * sizeof(int32_t));
+
+    pad_and_copy_weights(W_pad, W_src, M, K, M, K);
+    pad_and_copy_weights(X_pad, X_src, K, N, K, N);
+
+    gemmrv_mat A = GEMMRV_MAT(W_pad, M, K, K);
+    gemmrv_mat B = GEMMRV_MAT(X_pad, K, N, 16); // stride_B = 16 triggers B-burst!
+    gemmrv_mat_out C = GEMMRV_MAT_OUT(Y_hw, M, N, N);
+
+    struct timespec t0, t1;
+    clock_gettime(CLOCK_MONOTONIC, &t0);
+    gemm_sw(W_src, X_src, Y_sw, M, K, N);
+    clock_gettime(CLOCK_MONOTONIC, &t1);
+    double sw_us = get_time_us(&t0, &t1);
+
+    hw_reset_perf_counters();
+    clock_gettime(CLOCK_MONOTONIC, &t0);
+    gemmrv_mult(&A, &B, &C);
+    clock_gettime(CLOCK_MONOTONIC, &t1);
+    double hw_us = get_time_us(&t0, &t1);
+
+    uint32_t perf[4];
+    hw_read_perf_breakdown(perf);
+
+    int errors = 0;
+    for (int i = 0; i < M * N; i++) {
+        if (Y_sw[i] != Y_hw[i]) errors++;
+    }
+
+    printf("\n[B-BURST TEST %3dx%3dx%3d]: %s | SW: %10.1f us | HW: %8.1f us | Speedup: %5.2fx\n",
+           M, K, N, (errors==0?"PASS":"FAIL"), sw_us, hw_us, sw_us / hw_us);
+    printf("   Perf Cycles Breakdown: Fetch A: %u | Fetch B: %u | Compute: %u | Store C: %u\n\n",
+           perf[0], perf[1], perf[2], perf[3]);
+
+    free(W_src);
+    free(X_src);
+    free(Y_sw);
+    return errors;
+}
+
 int main() {
     if (gemmrv_init() < 0) {
         printf("Failed to init HW\n");
@@ -111,7 +161,6 @@ int main() {
 
     int total_errors = 0;
     
-    // Test multiple tile shapes
     total_errors += test_matrix_shape(16, 16, 16, 1);
     total_errors += test_matrix_shape(16, 32, 16, 2);
     total_errors += test_matrix_shape(32, 64, 32, 3);
@@ -120,6 +169,8 @@ int main() {
     total_errors += test_matrix_shape(128, 576, 256, 6);
     total_errors += test_matrix_shape(256, 512, 256, 7);
     total_errors += test_matrix_shape(256, 1152, 256, 8);
+
+    total_errors += test_b_burst_shape(128, 576, 256);
 
     printf("============================================================\n");
     if (total_errors == 0) {

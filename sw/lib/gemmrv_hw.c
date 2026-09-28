@@ -156,9 +156,19 @@ void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
                 int tile_K = (K - k < HW_TILE_SIZE) ? (K - k) : HW_TILE_SIZE;
                 int m_b = m / HW_TILE_SIZE;
                 int k_b = k / HW_TILE_SIZE;
-                int block_idx = m_b * (K / HW_TILE_SIZE) + k_b;
-                uint32_t tile_A_addr = phys_base_A + block_idx * 256;
-                uint32_t tile_B_addr = phys_base_B + k * B->stride + n;
+                int block_idx_a = m_b * (K / HW_TILE_SIZE) + k_b;
+                uint32_t tile_A_addr = phys_base_A + block_idx_a * 256;
+                
+                uint32_t tile_B_addr;
+                if (B->stride == 16) {
+                    // Block-interleaved Matrix B (16x16 contiguous tiles)
+                    int n_b = n / HW_TILE_SIZE;
+                    int block_idx_b = k_b * (N / HW_TILE_SIZE) + n_b;
+                    tile_B_addr = phys_base_B + block_idx_b * 256;
+                } else {
+                    // Standard 2D strided Matrix B
+                    tile_B_addr = phys_base_B + k * B->stride + n;
+                }
                 
                 int clear = (k == 0) ? 1 : 0;
                 int store = (k + HW_TILE_SIZE >= K) ? 1 : 0;
