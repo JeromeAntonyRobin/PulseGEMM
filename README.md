@@ -167,17 +167,18 @@ Programs the generated bitstream (`bitstream/gemm_top.pdb`) onto the PolarFire S
 
 ## FPGA Resource Utilization
 
-Synthesis and Place-and-Route (PnR) results generated via Microchip Libero SoC 2026.1 for the target **PolarFire SoC MPFS095T-1FCSG325E** FPGA device:
+Synthesis and Place-and-Route (PnR) results for the **PulseGEMM Engine (`gemm_dma_top`)** targeting the **PolarFire SoC MPFS095T-1FCSG325E** device (via Microchip Libero SoC & Synplify Pro):
 
 | Resource Type | Used | Total Available | Utilization (%) |
 | :--- | :--- | :--- | :--- |
-| **4LUT (Logic LUTs)** | 19 | 93,516 | 0.02% |
-| **DFF (Flip-Flops)** | 16 | 93,516 | 0.02% |
-| **User I/O (Pins)** | 4 | 80 | 5.00% |
-| **Math Blocks (DSP)** | 0 | 292 | 0.00% |
+| **Logic LUTs (4LUT/CFG)** | 40,457 | 93,516 | **43.26%** |
+| **Sequential Logic (DFF / SLE)** | 29,453 | 93,516 | **31.49%** |
+| **Math Blocks (DSP / MACC_PA)** | 256 | 292 | **87.67%** |
+| **uSRAM / SeqShift (RAM64x12)** | 22 | 876 | **2.51%** |
 | **LSRAM (18Kb Blocks)** | 0 | 308 | 0.00% |
-| **uSRAM (64B Blocks)** | 0 | 876 | 0.00% |
-| **H-Chip Global Clocks** | 1 | 48 | 2.08% |
+| **Global Clock Buffers** | 4 | 48 | 8.33% |
+
+*Note: The $16 \times 16$ processing element array directly utilizes **256 hardware DSP blocks** (87.7% of total device DSP capacity) to achieve 256 MAC operations per clock cycle at 100 MHz.*
 
 ---
 
