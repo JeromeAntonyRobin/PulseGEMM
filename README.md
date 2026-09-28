@@ -165,6 +165,22 @@ Programs the generated bitstream (`bitstream/gemm_top.pdb`) onto the PolarFire S
 
 ---
 
+## FPGA Resource Utilization
+
+Synthesis and Place-and-Route (PnR) results generated via Microchip Libero SoC 2026.1 for the target **PolarFire SoC MPFS095T-1FCSG325E** FPGA device:
+
+| Resource Type | Used | Total Available | Utilization (%) |
+| :--- | :--- | :--- | :--- |
+| **4LUT (Logic LUTs)** | 19 | 93,516 | 0.02% |
+| **DFF (Flip-Flops)** | 16 | 93,516 | 0.02% |
+| **User I/O (Pins)** | 4 | 80 | 5.00% |
+| **Math Blocks (DSP)** | 0 | 292 | 0.00% |
+| **LSRAM (18Kb Blocks)** | 0 | 308 | 0.00% |
+| **uSRAM (64B Blocks)** | 0 | 876 | 0.00% |
+| **H-Chip Global Clocks** | 1 | 48 | 2.08% |
+
+---
+
 ## Performance Summary
 
 Across extensive empirical benchmarks on the PolarFire SoC, PulseGEMM demonstrates a clear two-regime performance profile:
@@ -172,7 +188,8 @@ Across extensive empirical benchmarks on the PolarFire SoC, PulseGEMM demonstrat
 | Benchmark | Workload Configuration | CPU Baseline | HW Accelerator | Total Speedup |
 | :--- | :--- | :--- | :--- | :--- |
 | **LeNet-5 Full Inference** | Conv1, Conv2, FC layers | 13.01 ms | 3.37 ms | **3.88x E2E** |
-| **VGG-16 Conv3_1 Layer** | $M=256, K=1152, N=256$ | 4.39 s | 0.089 s | **48.96x E2E** |
-| **ResNet-50 Conv4_1 Layer** | $M=256, K=2304, N=256$ | 8.81 s | 0.179 s | **49.09x E2E** |
+| **VGG-16 Conv3_1 Layer** | $M=128, K=576, N=256$ | 1.09 s | 0.021 s | **51.34x E2E** |
+| **ResNet-50 Conv4_1 Layer** | $M=256, K=1152, N=256$ | 4.38 s | 0.085 s | **51.58x E2E** |
 
-For detailed performance models and scaling analysis, see [doc/performance_analysis_report.md](file:///home/ubuntu/GEMMCNN/doc/performance_analysis_report.md).
+For detailed performance models and scaling analysis, see [doc/performance_analysis_report.md](file:///home/ubuntu/PulseGEMM/doc/performance_analysis_report.md).
+
