@@ -175,4 +175,4 @@ Across extensive empirical benchmarks on the PolarFire SoC, the accelerator demo
 | **VGG-16 Conv3_1 Layer** | $M=256, K=1152, N=256$ | 4.39 s | 0.089 s | **48.96x E2E** |
 | **ResNet-50 Conv4_1 Layer** | $M=256, K=2304, N=256$ | 8.81 s | 0.179 s | **49.09x E2E** |
 
-For detailed performance models and scaling analysis, see [doc/performance_analysis_report.md](file:///home/ubuntu/GEMMCNN/doc/performance_analysis_report.md).
+For detailed performance models and scaling analysis, see [doc/performance_analysis_report.md](/doc/performance_analysis_report.md).
