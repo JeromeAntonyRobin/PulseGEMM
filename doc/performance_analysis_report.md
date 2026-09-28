@@ -1,7 +1,7 @@
-# GEMM CNN Hardware Accelerator Performance & Scaling Analysis
+# PulseGEMM Hardware Accelerator Performance & Scaling Analysis
 
 ## Executive Summary
-This document details the performance analysis, scaling behavior, and architectural timing breakdown of the GEMM hardware accelerator deployed on the PolarFire SoC FPGA. 
+This document details the performance analysis, scaling behavior, and architectural timing breakdown of the PulseGEMM hardware accelerator deployed on the PolarFire SoC FPGA. 
 
 Through an extensive empirical scaling sweep ranging from $16 \times 16 \times 16$ up to $256 \times 1152 \times 256$ GEMM workloads, we demonstrate that accelerator speedup exhibits a clear two-regime transition: from cache-assisted CPU execution on small matrices to steady-state compute convergence on large matrices.
 

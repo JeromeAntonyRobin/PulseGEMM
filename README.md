@@ -1,6 +1,6 @@
-# GEMM CNN Hardware Accelerator
+# PulseGEMM: PolarFire Ultra-Fast Layer-wise Systolic Engine for GEMM
 
-A high-performance, 2D-strided zero-copy hardware accelerator for Convolutional Neural Network (CNN) workloads, designed for the Microchip PolarFire SoC FPGA. Featuring a $16 \times 16$ processing-element (PE) systolic array core and an integrated AXI4 DMA engine with ping-pong buffering, the accelerator achieves up to **~49.3x speedup** over CPU software execution on large-scale matrix operations.
+**PulseGEMM** is a high-performance, 2D-strided zero-copy hardware accelerator for Convolutional Neural Network (CNN) workloads, optimized for the Microchip PolarFire SoC FPGA. Featuring a $16 \times 16$ processing-element (PE) systolic array core and an integrated AXI4 DMA engine with ping-pong buffering, PulseGEMM achieves up to **~49.3x speedup** over CPU software execution on large-scale matrix operations.
 
 ---
 
@@ -17,7 +17,7 @@ A high-performance, 2D-strided zero-copy hardware accelerator for Convolutional 
 ## Repository Structure
 
 ```text
-GEMMCNN/
+PulseGEMM/
 ├── rtl/
 │   ├── gemm/           # Decoupled GEMM Accelerator IP
 │   │   ├── gemm_dma_top.v          # Top-level AXI4 DMA controller & FSM
@@ -167,7 +167,7 @@ Programs the generated bitstream (`bitstream/gemm_top.pdb`) onto the PolarFire S
 
 ## Performance Summary
 
-Across extensive empirical benchmarks on the PolarFire SoC, the accelerator demonstrates a clear two-regime performance profile:
+Across extensive empirical benchmarks on the PolarFire SoC, PulseGEMM demonstrates a clear two-regime performance profile:
 
 | Benchmark | Workload Configuration | CPU Baseline | HW Accelerator | Total Speedup |
 | :--- | :--- | :--- | :--- | :--- |
@@ -175,4 +175,4 @@ Across extensive empirical benchmarks on the PolarFire SoC, the accelerator demo
 | **VGG-16 Conv3_1 Layer** | $M=256, K=1152, N=256$ | 4.39 s | 0.089 s | **48.96x E2E** |
 | **ResNet-50 Conv4_1 Layer** | $M=256, K=2304, N=256$ | 8.81 s | 0.179 s | **49.09x E2E** |
 
-For detailed performance models and scaling analysis, see [doc/performance_analysis_report.md](/doc/performance_analysis_report.md).
+For detailed performance models and scaling analysis, see [doc/performance_analysis_report.md](file:///home/ubuntu/GEMMCNN/doc/performance_analysis_report.md).
