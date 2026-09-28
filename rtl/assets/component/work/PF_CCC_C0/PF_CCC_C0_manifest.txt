@@ -1,0 +1,14 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:40 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  PF_CCC_C0
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/PF_CCC_C0/PF_CCC_C0_0/PF_CCC_C0_PF_CCC_C0_0_PF_CCC.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/PF_CCC_C0/PF_CCC_C0.v
+
+Constraint files:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/PF_CCC_C0/PF_CCC_C0_0/PF_CCC_C0_PF_CCC_C0_0_PF_CCC.sdc

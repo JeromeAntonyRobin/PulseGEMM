@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="drcss.xsl"?>
+<drcreport>
+  <header>MSS_WRAPPER</header>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin MPFS_DISCOVERY_KIT_MSS_0:MMUART_0_TXD_OE_M2F</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/MSS_WRAPPER/pins/MPFS_DISCOVERY_KIT_MSS_0:MMUART_0_TXD_OE_M2F</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin MPFS_DISCOVERY_KIT_MSS_0:SPI_0_DO_OE_M2F</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/MSS_WRAPPER/pins/MPFS_DISCOVERY_KIT_MSS_0:SPI_0_DO_OE_M2F</crossprobe>
+  </drc>
+</drcreport>

@@ -1,0 +1,696 @@
+`timescale 1 ns/100 ps
+// Version: 2026.1 2026.1.0.17
+
+
+module MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM(
+       W_DATA,
+       R_DATA,
+       W_ADDR,
+       R_ADDR,
+       W_EN,
+       R_EN,
+       CLK,
+       WBYTE_EN
+    );
+input  [79:0] W_DATA;
+output [79:0] R_DATA;
+input  [10:0] W_ADDR;
+input  [10:0] R_ADDR;
+input  W_EN;
+input  R_EN;
+input  CLK;
+input  [7:0] WBYTE_EN;
+
+    wire \R_DATA_TEMPR0[0] , \R_DATA_TEMPR1[0] , \R_DATA_TEMPR2[0] , 
+        \R_DATA_TEMPR3[0] , \R_DATA_TEMPR0[1] , \R_DATA_TEMPR1[1] , 
+        \R_DATA_TEMPR2[1] , \R_DATA_TEMPR3[1] , \R_DATA_TEMPR0[2] , 
+        \R_DATA_TEMPR1[2] , \R_DATA_TEMPR2[2] , \R_DATA_TEMPR3[2] , 
+        \R_DATA_TEMPR0[3] , \R_DATA_TEMPR1[3] , \R_DATA_TEMPR2[3] , 
+        \R_DATA_TEMPR3[3] , \R_DATA_TEMPR0[4] , \R_DATA_TEMPR1[4] , 
+        \R_DATA_TEMPR2[4] , \R_DATA_TEMPR3[4] , \R_DATA_TEMPR0[5] , 
+        \R_DATA_TEMPR1[5] , \R_DATA_TEMPR2[5] , \R_DATA_TEMPR3[5] , 
+        \R_DATA_TEMPR0[6] , \R_DATA_TEMPR1[6] , \R_DATA_TEMPR2[6] , 
+        \R_DATA_TEMPR3[6] , \R_DATA_TEMPR0[7] , \R_DATA_TEMPR1[7] , 
+        \R_DATA_TEMPR2[7] , \R_DATA_TEMPR3[7] , \R_DATA_TEMPR0[8] , 
+        \R_DATA_TEMPR1[8] , \R_DATA_TEMPR2[8] , \R_DATA_TEMPR3[8] , 
+        \R_DATA_TEMPR0[9] , \R_DATA_TEMPR1[9] , \R_DATA_TEMPR2[9] , 
+        \R_DATA_TEMPR3[9] , \R_DATA_TEMPR0[10] , \R_DATA_TEMPR1[10] , 
+        \R_DATA_TEMPR2[10] , \R_DATA_TEMPR3[10] , \R_DATA_TEMPR0[11] , 
+        \R_DATA_TEMPR1[11] , \R_DATA_TEMPR2[11] , \R_DATA_TEMPR3[11] , 
+        \R_DATA_TEMPR0[12] , \R_DATA_TEMPR1[12] , \R_DATA_TEMPR2[12] , 
+        \R_DATA_TEMPR3[12] , \R_DATA_TEMPR0[13] , \R_DATA_TEMPR1[13] , 
+        \R_DATA_TEMPR2[13] , \R_DATA_TEMPR3[13] , \R_DATA_TEMPR0[14] , 
+        \R_DATA_TEMPR1[14] , \R_DATA_TEMPR2[14] , \R_DATA_TEMPR3[14] , 
+        \R_DATA_TEMPR0[15] , \R_DATA_TEMPR1[15] , \R_DATA_TEMPR2[15] , 
+        \R_DATA_TEMPR3[15] , \R_DATA_TEMPR0[16] , \R_DATA_TEMPR1[16] , 
+        \R_DATA_TEMPR2[16] , \R_DATA_TEMPR3[16] , \R_DATA_TEMPR0[17] , 
+        \R_DATA_TEMPR1[17] , \R_DATA_TEMPR2[17] , \R_DATA_TEMPR3[17] , 
+        \R_DATA_TEMPR0[18] , \R_DATA_TEMPR1[18] , \R_DATA_TEMPR2[18] , 
+        \R_DATA_TEMPR3[18] , \R_DATA_TEMPR0[19] , \R_DATA_TEMPR1[19] , 
+        \R_DATA_TEMPR2[19] , \R_DATA_TEMPR3[19] , \R_DATA_TEMPR0[20] , 
+        \R_DATA_TEMPR1[20] , \R_DATA_TEMPR2[20] , \R_DATA_TEMPR3[20] , 
+        \R_DATA_TEMPR0[21] , \R_DATA_TEMPR1[21] , \R_DATA_TEMPR2[21] , 
+        \R_DATA_TEMPR3[21] , \R_DATA_TEMPR0[22] , \R_DATA_TEMPR1[22] , 
+        \R_DATA_TEMPR2[22] , \R_DATA_TEMPR3[22] , \R_DATA_TEMPR0[23] , 
+        \R_DATA_TEMPR1[23] , \R_DATA_TEMPR2[23] , \R_DATA_TEMPR3[23] , 
+        \R_DATA_TEMPR0[24] , \R_DATA_TEMPR1[24] , \R_DATA_TEMPR2[24] , 
+        \R_DATA_TEMPR3[24] , \R_DATA_TEMPR0[25] , \R_DATA_TEMPR1[25] , 
+        \R_DATA_TEMPR2[25] , \R_DATA_TEMPR3[25] , \R_DATA_TEMPR0[26] , 
+        \R_DATA_TEMPR1[26] , \R_DATA_TEMPR2[26] , \R_DATA_TEMPR3[26] , 
+        \R_DATA_TEMPR0[27] , \R_DATA_TEMPR1[27] , \R_DATA_TEMPR2[27] , 
+        \R_DATA_TEMPR3[27] , \R_DATA_TEMPR0[28] , \R_DATA_TEMPR1[28] , 
+        \R_DATA_TEMPR2[28] , \R_DATA_TEMPR3[28] , \R_DATA_TEMPR0[29] , 
+        \R_DATA_TEMPR1[29] , \R_DATA_TEMPR2[29] , \R_DATA_TEMPR3[29] , 
+        \R_DATA_TEMPR0[30] , \R_DATA_TEMPR1[30] , \R_DATA_TEMPR2[30] , 
+        \R_DATA_TEMPR3[30] , \R_DATA_TEMPR0[31] , \R_DATA_TEMPR1[31] , 
+        \R_DATA_TEMPR2[31] , \R_DATA_TEMPR3[31] , \R_DATA_TEMPR0[32] , 
+        \R_DATA_TEMPR1[32] , \R_DATA_TEMPR2[32] , \R_DATA_TEMPR3[32] , 
+        \R_DATA_TEMPR0[33] , \R_DATA_TEMPR1[33] , \R_DATA_TEMPR2[33] , 
+        \R_DATA_TEMPR3[33] , \R_DATA_TEMPR0[34] , \R_DATA_TEMPR1[34] , 
+        \R_DATA_TEMPR2[34] , \R_DATA_TEMPR3[34] , \R_DATA_TEMPR0[35] , 
+        \R_DATA_TEMPR1[35] , \R_DATA_TEMPR2[35] , \R_DATA_TEMPR3[35] , 
+        \R_DATA_TEMPR0[36] , \R_DATA_TEMPR1[36] , \R_DATA_TEMPR2[36] , 
+        \R_DATA_TEMPR3[36] , \R_DATA_TEMPR0[37] , \R_DATA_TEMPR1[37] , 
+        \R_DATA_TEMPR2[37] , \R_DATA_TEMPR3[37] , \R_DATA_TEMPR0[38] , 
+        \R_DATA_TEMPR1[38] , \R_DATA_TEMPR2[38] , \R_DATA_TEMPR3[38] , 
+        \R_DATA_TEMPR0[39] , \R_DATA_TEMPR1[39] , \R_DATA_TEMPR2[39] , 
+        \R_DATA_TEMPR3[39] , \R_DATA_TEMPR0[40] , \R_DATA_TEMPR1[40] , 
+        \R_DATA_TEMPR2[40] , \R_DATA_TEMPR3[40] , \R_DATA_TEMPR0[41] , 
+        \R_DATA_TEMPR1[41] , \R_DATA_TEMPR2[41] , \R_DATA_TEMPR3[41] , 
+        \R_DATA_TEMPR0[42] , \R_DATA_TEMPR1[42] , \R_DATA_TEMPR2[42] , 
+        \R_DATA_TEMPR3[42] , \R_DATA_TEMPR0[43] , \R_DATA_TEMPR1[43] , 
+        \R_DATA_TEMPR2[43] , \R_DATA_TEMPR3[43] , \R_DATA_TEMPR0[44] , 
+        \R_DATA_TEMPR1[44] , \R_DATA_TEMPR2[44] , \R_DATA_TEMPR3[44] , 
+        \R_DATA_TEMPR0[45] , \R_DATA_TEMPR1[45] , \R_DATA_TEMPR2[45] , 
+        \R_DATA_TEMPR3[45] , \R_DATA_TEMPR0[46] , \R_DATA_TEMPR1[46] , 
+        \R_DATA_TEMPR2[46] , \R_DATA_TEMPR3[46] , \R_DATA_TEMPR0[47] , 
+        \R_DATA_TEMPR1[47] , \R_DATA_TEMPR2[47] , \R_DATA_TEMPR3[47] , 
+        \R_DATA_TEMPR0[48] , \R_DATA_TEMPR1[48] , \R_DATA_TEMPR2[48] , 
+        \R_DATA_TEMPR3[48] , \R_DATA_TEMPR0[49] , \R_DATA_TEMPR1[49] , 
+        \R_DATA_TEMPR2[49] , \R_DATA_TEMPR3[49] , \R_DATA_TEMPR0[50] , 
+        \R_DATA_TEMPR1[50] , \R_DATA_TEMPR2[50] , \R_DATA_TEMPR3[50] , 
+        \R_DATA_TEMPR0[51] , \R_DATA_TEMPR1[51] , \R_DATA_TEMPR2[51] , 
+        \R_DATA_TEMPR3[51] , \R_DATA_TEMPR0[52] , \R_DATA_TEMPR1[52] , 
+        \R_DATA_TEMPR2[52] , \R_DATA_TEMPR3[52] , \R_DATA_TEMPR0[53] , 
+        \R_DATA_TEMPR1[53] , \R_DATA_TEMPR2[53] , \R_DATA_TEMPR3[53] , 
+        \R_DATA_TEMPR0[54] , \R_DATA_TEMPR1[54] , \R_DATA_TEMPR2[54] , 
+        \R_DATA_TEMPR3[54] , \R_DATA_TEMPR0[55] , \R_DATA_TEMPR1[55] , 
+        \R_DATA_TEMPR2[55] , \R_DATA_TEMPR3[55] , \R_DATA_TEMPR0[56] , 
+        \R_DATA_TEMPR1[56] , \R_DATA_TEMPR2[56] , \R_DATA_TEMPR3[56] , 
+        \R_DATA_TEMPR0[57] , \R_DATA_TEMPR1[57] , \R_DATA_TEMPR2[57] , 
+        \R_DATA_TEMPR3[57] , \R_DATA_TEMPR0[58] , \R_DATA_TEMPR1[58] , 
+        \R_DATA_TEMPR2[58] , \R_DATA_TEMPR3[58] , \R_DATA_TEMPR0[59] , 
+        \R_DATA_TEMPR1[59] , \R_DATA_TEMPR2[59] , \R_DATA_TEMPR3[59] , 
+        \R_DATA_TEMPR0[60] , \R_DATA_TEMPR1[60] , \R_DATA_TEMPR2[60] , 
+        \R_DATA_TEMPR3[60] , \R_DATA_TEMPR0[61] , \R_DATA_TEMPR1[61] , 
+        \R_DATA_TEMPR2[61] , \R_DATA_TEMPR3[61] , \R_DATA_TEMPR0[62] , 
+        \R_DATA_TEMPR1[62] , \R_DATA_TEMPR2[62] , \R_DATA_TEMPR3[62] , 
+        \R_DATA_TEMPR0[63] , \R_DATA_TEMPR1[63] , \R_DATA_TEMPR2[63] , 
+        \R_DATA_TEMPR3[63] , \R_DATA_TEMPR0[64] , \R_DATA_TEMPR1[64] , 
+        \R_DATA_TEMPR2[64] , \R_DATA_TEMPR3[64] , \R_DATA_TEMPR0[65] , 
+        \R_DATA_TEMPR1[65] , \R_DATA_TEMPR2[65] , \R_DATA_TEMPR3[65] , 
+        \R_DATA_TEMPR0[66] , \R_DATA_TEMPR1[66] , \R_DATA_TEMPR2[66] , 
+        \R_DATA_TEMPR3[66] , \R_DATA_TEMPR0[67] , \R_DATA_TEMPR1[67] , 
+        \R_DATA_TEMPR2[67] , \R_DATA_TEMPR3[67] , \R_DATA_TEMPR0[68] , 
+        \R_DATA_TEMPR1[68] , \R_DATA_TEMPR2[68] , \R_DATA_TEMPR3[68] , 
+        \R_DATA_TEMPR0[69] , \R_DATA_TEMPR1[69] , \R_DATA_TEMPR2[69] , 
+        \R_DATA_TEMPR3[69] , \R_DATA_TEMPR0[70] , \R_DATA_TEMPR1[70] , 
+        \R_DATA_TEMPR2[70] , \R_DATA_TEMPR3[70] , \R_DATA_TEMPR0[71] , 
+        \R_DATA_TEMPR1[71] , \R_DATA_TEMPR2[71] , \R_DATA_TEMPR3[71] , 
+        \R_DATA_TEMPR0[72] , \R_DATA_TEMPR1[72] , \R_DATA_TEMPR2[72] , 
+        \R_DATA_TEMPR3[72] , \R_DATA_TEMPR0[73] , \R_DATA_TEMPR1[73] , 
+        \R_DATA_TEMPR2[73] , \R_DATA_TEMPR3[73] , \R_DATA_TEMPR0[74] , 
+        \R_DATA_TEMPR1[74] , \R_DATA_TEMPR2[74] , \R_DATA_TEMPR3[74] , 
+        \R_DATA_TEMPR0[75] , \R_DATA_TEMPR1[75] , \R_DATA_TEMPR2[75] , 
+        \R_DATA_TEMPR3[75] , \R_DATA_TEMPR0[76] , \R_DATA_TEMPR1[76] , 
+        \R_DATA_TEMPR2[76] , \R_DATA_TEMPR3[76] , \R_DATA_TEMPR0[77] , 
+        \R_DATA_TEMPR1[77] , \R_DATA_TEMPR2[77] , \R_DATA_TEMPR3[77] , 
+        \R_DATA_TEMPR0[78] , \R_DATA_TEMPR1[78] , \R_DATA_TEMPR2[78] , 
+        \R_DATA_TEMPR3[78] , \R_DATA_TEMPR0[79] , \R_DATA_TEMPR1[79] , 
+        \R_DATA_TEMPR2[79] , \R_DATA_TEMPR3[79] , \BLKX0[0] , 
+        \BLKY0[0] , \BLKX1[0] , \BLKY1[0] , \ACCESS_BUSY[0][0] , 
+        \ACCESS_BUSY[0][1] , \ACCESS_BUSY[1][0] , \ACCESS_BUSY[1][1] , 
+        \ACCESS_BUSY[2][0] , \ACCESS_BUSY[2][1] , \ACCESS_BUSY[3][0] , 
+        \ACCESS_BUSY[3][1] , VCC, GND, ADLIB_VCC;
+    wire GND_power_net1;
+    wire VCC_power_net1;
+    assign GND = GND_power_net1;
+    assign VCC = VCC_power_net1;
+    assign ADLIB_VCC = VCC_power_net1;
+    
+    OR4 \OR4_R_DATA[11]  (.A(\R_DATA_TEMPR0[11] ), .B(
+        \R_DATA_TEMPR1[11] ), .C(\R_DATA_TEMPR2[11] ), .D(
+        \R_DATA_TEMPR3[11] ), .Y(R_DATA[11]));
+    OR4 \OR4_R_DATA[55]  (.A(\R_DATA_TEMPR0[55] ), .B(
+        \R_DATA_TEMPR1[55] ), .C(\R_DATA_TEMPR2[55] ), .D(
+        \R_DATA_TEMPR3[55] ), .Y(R_DATA[55]));
+    CFG1 #( .INIT(2'h1) )  \INVBLKX0[0]  (.A(W_ADDR[9]), .Y(\BLKX0[0] )
+        );
+    OR4 \OR4_R_DATA[76]  (.A(\R_DATA_TEMPR0[76] ), .B(
+        \R_DATA_TEMPR1[76] ), .C(\R_DATA_TEMPR2[76] ), .D(
+        \R_DATA_TEMPR3[76] ), .Y(R_DATA[76]));
+    OR4 \OR4_R_DATA[9]  (.A(\R_DATA_TEMPR0[9] ), .B(\R_DATA_TEMPR1[9] )
+        , .C(\R_DATA_TEMPR2[9] ), .D(\R_DATA_TEMPR3[9] ), .Y(R_DATA[9])
+        );
+    OR4 \OR4_R_DATA[22]  (.A(\R_DATA_TEMPR0[22] ), .B(
+        \R_DATA_TEMPR1[22] ), .C(\R_DATA_TEMPR2[22] ), .D(
+        \R_DATA_TEMPR3[22] ), .Y(R_DATA[22]));
+    OR4 \OR4_R_DATA[65]  (.A(\R_DATA_TEMPR0[65] ), .B(
+        \R_DATA_TEMPR1[65] ), .C(\R_DATA_TEMPR2[65] ), .D(
+        \R_DATA_TEMPR3[65] ), .Y(R_DATA[65]));
+    OR4 \OR4_R_DATA[38]  (.A(\R_DATA_TEMPR0[38] ), .B(
+        \R_DATA_TEMPR1[38] ), .C(\R_DATA_TEMPR2[38] ), .D(
+        \R_DATA_TEMPR3[38] ), .Y(R_DATA[38]));
+    OR4 \OR4_R_DATA[10]  (.A(\R_DATA_TEMPR0[10] ), .B(
+        \R_DATA_TEMPR1[10] ), .C(\R_DATA_TEMPR2[10] ), .D(
+        \R_DATA_TEMPR3[10] ), .Y(R_DATA[10]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%1%1%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R1C1 (.A_DOUT({
+        \R_DATA_TEMPR1[79] , \R_DATA_TEMPR1[78] , \R_DATA_TEMPR1[77] , 
+        \R_DATA_TEMPR1[76] , \R_DATA_TEMPR1[75] , \R_DATA_TEMPR1[74] , 
+        \R_DATA_TEMPR1[73] , \R_DATA_TEMPR1[72] , \R_DATA_TEMPR1[71] , 
+        \R_DATA_TEMPR1[70] , \R_DATA_TEMPR1[69] , \R_DATA_TEMPR1[68] , 
+        \R_DATA_TEMPR1[67] , \R_DATA_TEMPR1[66] , \R_DATA_TEMPR1[65] , 
+        \R_DATA_TEMPR1[64] , \R_DATA_TEMPR1[63] , \R_DATA_TEMPR1[62] , 
+        \R_DATA_TEMPR1[61] , \R_DATA_TEMPR1[60] }), .B_DOUT({
+        \R_DATA_TEMPR1[59] , \R_DATA_TEMPR1[58] , \R_DATA_TEMPR1[57] , 
+        \R_DATA_TEMPR1[56] , \R_DATA_TEMPR1[55] , \R_DATA_TEMPR1[54] , 
+        \R_DATA_TEMPR1[53] , \R_DATA_TEMPR1[52] , \R_DATA_TEMPR1[51] , 
+        \R_DATA_TEMPR1[50] , \R_DATA_TEMPR1[49] , \R_DATA_TEMPR1[48] , 
+        \R_DATA_TEMPR1[47] , \R_DATA_TEMPR1[46] , \R_DATA_TEMPR1[45] , 
+        \R_DATA_TEMPR1[44] , \R_DATA_TEMPR1[43] , \R_DATA_TEMPR1[42] , 
+        \R_DATA_TEMPR1[41] , \R_DATA_TEMPR1[40] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[1][1] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, \BLKY1[0] , R_ADDR[9]}), .A_CLK(CLK), 
+        .A_DIN({W_DATA[79], W_DATA[78], W_DATA[77], W_DATA[76], 
+        W_DATA[75], W_DATA[74], W_DATA[73], W_DATA[72], W_DATA[71], 
+        W_DATA[70], W_DATA[69], W_DATA[68], W_DATA[67], W_DATA[66], 
+        W_DATA[65], W_DATA[64], W_DATA[63], W_DATA[62], W_DATA[61], 
+        W_DATA[60]}), .A_REN(VCC), .A_WEN({WBYTE_EN[7], WBYTE_EN[6]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, \BLKX1[0] , W_ADDR[9]}), .B_CLK(CLK), 
+        .B_DIN({W_DATA[59], W_DATA[58], W_DATA[57], W_DATA[56], 
+        W_DATA[55], W_DATA[54], W_DATA[53], W_DATA[52], W_DATA[51], 
+        W_DATA[50], W_DATA[49], W_DATA[48], W_DATA[47], W_DATA[46], 
+        W_DATA[45], W_DATA[44], W_DATA[43], W_DATA[42], W_DATA[41], 
+        W_DATA[40]}), .B_REN(VCC), .B_WEN({WBYTE_EN[5], WBYTE_EN[4]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[17]  (.A(\R_DATA_TEMPR0[17] ), .B(
+        \R_DATA_TEMPR1[17] ), .C(\R_DATA_TEMPR2[17] ), .D(
+        \R_DATA_TEMPR3[17] ), .Y(R_DATA[17]));
+    OR4 \OR4_R_DATA[44]  (.A(\R_DATA_TEMPR0[44] ), .B(
+        \R_DATA_TEMPR1[44] ), .C(\R_DATA_TEMPR2[44] ), .D(
+        \R_DATA_TEMPR3[44] ), .Y(R_DATA[44]));
+    CFG1 #( .INIT(2'h1) )  \INVBLKX1[0]  (.A(W_ADDR[10]), .Y(
+        \BLKX1[0] ));
+    OR4 \OR4_R_DATA[3]  (.A(\R_DATA_TEMPR0[3] ), .B(\R_DATA_TEMPR1[3] )
+        , .C(\R_DATA_TEMPR2[3] ), .D(\R_DATA_TEMPR3[3] ), .Y(R_DATA[3])
+        );
+    OR4 \OR4_R_DATA[31]  (.A(\R_DATA_TEMPR0[31] ), .B(
+        \R_DATA_TEMPR1[31] ), .C(\R_DATA_TEMPR2[31] ), .D(
+        \R_DATA_TEMPR3[31] ), .Y(R_DATA[31]));
+    OR4 \OR4_R_DATA[59]  (.A(\R_DATA_TEMPR0[59] ), .B(
+        \R_DATA_TEMPR1[59] ), .C(\R_DATA_TEMPR2[59] ), .D(
+        \R_DATA_TEMPR3[59] ), .Y(R_DATA[59]));
+    OR4 \OR4_R_DATA[69]  (.A(\R_DATA_TEMPR0[69] ), .B(
+        \R_DATA_TEMPR1[69] ), .C(\R_DATA_TEMPR2[69] ), .D(
+        \R_DATA_TEMPR3[69] ), .Y(R_DATA[69]));
+    OR4 \OR4_R_DATA[74]  (.A(\R_DATA_TEMPR0[74] ), .B(
+        \R_DATA_TEMPR1[74] ), .C(\R_DATA_TEMPR2[74] ), .D(
+        \R_DATA_TEMPR3[74] ), .Y(R_DATA[74]));
+    OR4 \OR4_R_DATA[30]  (.A(\R_DATA_TEMPR0[30] ), .B(
+        \R_DATA_TEMPR1[30] ), .C(\R_DATA_TEMPR2[30] ), .D(
+        \R_DATA_TEMPR3[30] ), .Y(R_DATA[30]));
+    OR4 \OR4_R_DATA[58]  (.A(\R_DATA_TEMPR0[58] ), .B(
+        \R_DATA_TEMPR1[58] ), .C(\R_DATA_TEMPR2[58] ), .D(
+        \R_DATA_TEMPR3[58] ), .Y(R_DATA[58]));
+    OR4 \OR4_R_DATA[37]  (.A(\R_DATA_TEMPR0[37] ), .B(
+        \R_DATA_TEMPR1[37] ), .C(\R_DATA_TEMPR2[37] ), .D(
+        \R_DATA_TEMPR3[37] ), .Y(R_DATA[37]));
+    OR4 \OR4_R_DATA[1]  (.A(\R_DATA_TEMPR0[1] ), .B(\R_DATA_TEMPR1[1] )
+        , .C(\R_DATA_TEMPR2[1] ), .D(\R_DATA_TEMPR3[1] ), .Y(R_DATA[1])
+        );
+    OR4 \OR4_R_DATA[8]  (.A(\R_DATA_TEMPR0[8] ), .B(\R_DATA_TEMPR1[8] )
+        , .C(\R_DATA_TEMPR2[8] ), .D(\R_DATA_TEMPR3[8] ), .Y(R_DATA[8])
+        );
+    OR4 \OR4_R_DATA[12]  (.A(\R_DATA_TEMPR0[12] ), .B(
+        \R_DATA_TEMPR1[12] ), .C(\R_DATA_TEMPR2[12] ), .D(
+        \R_DATA_TEMPR3[12] ), .Y(R_DATA[12]));
+    OR4 \OR4_R_DATA[26]  (.A(\R_DATA_TEMPR0[26] ), .B(
+        \R_DATA_TEMPR1[26] ), .C(\R_DATA_TEMPR2[26] ), .D(
+        \R_DATA_TEMPR3[26] ), .Y(R_DATA[26]));
+    OR4 \OR4_R_DATA[68]  (.A(\R_DATA_TEMPR0[68] ), .B(
+        \R_DATA_TEMPR1[68] ), .C(\R_DATA_TEMPR2[68] ), .D(
+        \R_DATA_TEMPR3[68] ), .Y(R_DATA[68]));
+    OR4 \OR4_R_DATA[43]  (.A(\R_DATA_TEMPR0[43] ), .B(
+        \R_DATA_TEMPR1[43] ), .C(\R_DATA_TEMPR2[43] ), .D(
+        \R_DATA_TEMPR3[43] ), .Y(R_DATA[43]));
+    OR4 \OR4_R_DATA[51]  (.A(\R_DATA_TEMPR0[51] ), .B(
+        \R_DATA_TEMPR1[51] ), .C(\R_DATA_TEMPR2[51] ), .D(
+        \R_DATA_TEMPR3[51] ), .Y(R_DATA[51]));
+    OR4 \OR4_R_DATA[61]  (.A(\R_DATA_TEMPR0[61] ), .B(
+        \R_DATA_TEMPR1[61] ), .C(\R_DATA_TEMPR2[61] ), .D(
+        \R_DATA_TEMPR3[61] ), .Y(R_DATA[61]));
+    OR4 \OR4_R_DATA[50]  (.A(\R_DATA_TEMPR0[50] ), .B(
+        \R_DATA_TEMPR1[50] ), .C(\R_DATA_TEMPR2[50] ), .D(
+        \R_DATA_TEMPR3[50] ), .Y(R_DATA[50]));
+    OR4 \OR4_R_DATA[0]  (.A(\R_DATA_TEMPR0[0] ), .B(\R_DATA_TEMPR1[0] )
+        , .C(\R_DATA_TEMPR2[0] ), .D(\R_DATA_TEMPR3[0] ), .Y(R_DATA[0])
+        );
+    OR4 \OR4_R_DATA[57]  (.A(\R_DATA_TEMPR0[57] ), .B(
+        \R_DATA_TEMPR1[57] ), .C(\R_DATA_TEMPR2[57] ), .D(
+        \R_DATA_TEMPR3[57] ), .Y(R_DATA[57]));
+    OR4 \OR4_R_DATA[32]  (.A(\R_DATA_TEMPR0[32] ), .B(
+        \R_DATA_TEMPR1[32] ), .C(\R_DATA_TEMPR2[32] ), .D(
+        \R_DATA_TEMPR3[32] ), .Y(R_DATA[32]));
+    OR4 \OR4_R_DATA[24]  (.A(\R_DATA_TEMPR0[24] ), .B(
+        \R_DATA_TEMPR1[24] ), .C(\R_DATA_TEMPR2[24] ), .D(
+        \R_DATA_TEMPR3[24] ), .Y(R_DATA[24]));
+    OR4 \OR4_R_DATA[60]  (.A(\R_DATA_TEMPR0[60] ), .B(
+        \R_DATA_TEMPR1[60] ), .C(\R_DATA_TEMPR2[60] ), .D(
+        \R_DATA_TEMPR3[60] ), .Y(R_DATA[60]));
+    OR4 \OR4_R_DATA[2]  (.A(\R_DATA_TEMPR0[2] ), .B(\R_DATA_TEMPR1[2] )
+        , .C(\R_DATA_TEMPR2[2] ), .D(\R_DATA_TEMPR3[2] ), .Y(R_DATA[2])
+        );
+    OR4 \OR4_R_DATA[73]  (.A(\R_DATA_TEMPR0[73] ), .B(
+        \R_DATA_TEMPR1[73] ), .C(\R_DATA_TEMPR2[73] ), .D(
+        \R_DATA_TEMPR3[73] ), .Y(R_DATA[73]));
+    OR4 \OR4_R_DATA[67]  (.A(\R_DATA_TEMPR0[67] ), .B(
+        \R_DATA_TEMPR1[67] ), .C(\R_DATA_TEMPR2[67] ), .D(
+        \R_DATA_TEMPR3[67] ), .Y(R_DATA[67]));
+    OR4 \OR4_R_DATA[16]  (.A(\R_DATA_TEMPR0[16] ), .B(
+        \R_DATA_TEMPR1[16] ), .C(\R_DATA_TEMPR2[16] ), .D(
+        \R_DATA_TEMPR3[16] ), .Y(R_DATA[16]));
+    OR4 \OR4_R_DATA[45]  (.A(\R_DATA_TEMPR0[45] ), .B(
+        \R_DATA_TEMPR1[45] ), .C(\R_DATA_TEMPR2[45] ), .D(
+        \R_DATA_TEMPR3[45] ), .Y(R_DATA[45]));
+    OR4 \OR4_R_DATA[52]  (.A(\R_DATA_TEMPR0[52] ), .B(
+        \R_DATA_TEMPR1[52] ), .C(\R_DATA_TEMPR2[52] ), .D(
+        \R_DATA_TEMPR3[52] ), .Y(R_DATA[52]));
+    OR4 \OR4_R_DATA[36]  (.A(\R_DATA_TEMPR0[36] ), .B(
+        \R_DATA_TEMPR1[36] ), .C(\R_DATA_TEMPR2[36] ), .D(
+        \R_DATA_TEMPR3[36] ), .Y(R_DATA[36]));
+    OR4 \OR4_R_DATA[62]  (.A(\R_DATA_TEMPR0[62] ), .B(
+        \R_DATA_TEMPR1[62] ), .C(\R_DATA_TEMPR2[62] ), .D(
+        \R_DATA_TEMPR3[62] ), .Y(R_DATA[62]));
+    OR4 \OR4_R_DATA[75]  (.A(\R_DATA_TEMPR0[75] ), .B(
+        \R_DATA_TEMPR1[75] ), .C(\R_DATA_TEMPR2[75] ), .D(
+        \R_DATA_TEMPR3[75] ), .Y(R_DATA[75]));
+    OR4 \OR4_R_DATA[14]  (.A(\R_DATA_TEMPR0[14] ), .B(
+        \R_DATA_TEMPR1[14] ), .C(\R_DATA_TEMPR2[14] ), .D(
+        \R_DATA_TEMPR3[14] ), .Y(R_DATA[14]));
+    OR4 \OR4_R_DATA[23]  (.A(\R_DATA_TEMPR0[23] ), .B(
+        \R_DATA_TEMPR1[23] ), .C(\R_DATA_TEMPR2[23] ), .D(
+        \R_DATA_TEMPR3[23] ), .Y(R_DATA[23]));
+    OR4 \OR4_R_DATA[49]  (.A(\R_DATA_TEMPR0[49] ), .B(
+        \R_DATA_TEMPR1[49] ), .C(\R_DATA_TEMPR2[49] ), .D(
+        \R_DATA_TEMPR3[49] ), .Y(R_DATA[49]));
+    OR4 \OR4_R_DATA[48]  (.A(\R_DATA_TEMPR0[48] ), .B(
+        \R_DATA_TEMPR1[48] ), .C(\R_DATA_TEMPR2[48] ), .D(
+        \R_DATA_TEMPR3[48] ), .Y(R_DATA[48]));
+    OR4 \OR4_R_DATA[79]  (.A(\R_DATA_TEMPR0[79] ), .B(
+        \R_DATA_TEMPR1[79] ), .C(\R_DATA_TEMPR2[79] ), .D(
+        \R_DATA_TEMPR3[79] ), .Y(R_DATA[79]));
+    OR4 \OR4_R_DATA[56]  (.A(\R_DATA_TEMPR0[56] ), .B(
+        \R_DATA_TEMPR1[56] ), .C(\R_DATA_TEMPR2[56] ), .D(
+        \R_DATA_TEMPR3[56] ), .Y(R_DATA[56]));
+    OR4 \OR4_R_DATA[34]  (.A(\R_DATA_TEMPR0[34] ), .B(
+        \R_DATA_TEMPR1[34] ), .C(\R_DATA_TEMPR2[34] ), .D(
+        \R_DATA_TEMPR3[34] ), .Y(R_DATA[34]));
+    OR4 \OR4_R_DATA[41]  (.A(\R_DATA_TEMPR0[41] ), .B(
+        \R_DATA_TEMPR1[41] ), .C(\R_DATA_TEMPR2[41] ), .D(
+        \R_DATA_TEMPR3[41] ), .Y(R_DATA[41]));
+    OR4 \OR4_R_DATA[66]  (.A(\R_DATA_TEMPR0[66] ), .B(
+        \R_DATA_TEMPR1[66] ), .C(\R_DATA_TEMPR2[66] ), .D(
+        \R_DATA_TEMPR3[66] ), .Y(R_DATA[66]));
+    OR4 \OR4_R_DATA[25]  (.A(\R_DATA_TEMPR0[25] ), .B(
+        \R_DATA_TEMPR1[25] ), .C(\R_DATA_TEMPR2[25] ), .D(
+        \R_DATA_TEMPR3[25] ), .Y(R_DATA[25]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%3%0%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R3C0 (.A_DOUT({
+        \R_DATA_TEMPR3[39] , \R_DATA_TEMPR3[38] , \R_DATA_TEMPR3[37] , 
+        \R_DATA_TEMPR3[36] , \R_DATA_TEMPR3[35] , \R_DATA_TEMPR3[34] , 
+        \R_DATA_TEMPR3[33] , \R_DATA_TEMPR3[32] , \R_DATA_TEMPR3[31] , 
+        \R_DATA_TEMPR3[30] , \R_DATA_TEMPR3[29] , \R_DATA_TEMPR3[28] , 
+        \R_DATA_TEMPR3[27] , \R_DATA_TEMPR3[26] , \R_DATA_TEMPR3[25] , 
+        \R_DATA_TEMPR3[24] , \R_DATA_TEMPR3[23] , \R_DATA_TEMPR3[22] , 
+        \R_DATA_TEMPR3[21] , \R_DATA_TEMPR3[20] }), .B_DOUT({
+        \R_DATA_TEMPR3[19] , \R_DATA_TEMPR3[18] , \R_DATA_TEMPR3[17] , 
+        \R_DATA_TEMPR3[16] , \R_DATA_TEMPR3[15] , \R_DATA_TEMPR3[14] , 
+        \R_DATA_TEMPR3[13] , \R_DATA_TEMPR3[12] , \R_DATA_TEMPR3[11] , 
+        \R_DATA_TEMPR3[10] , \R_DATA_TEMPR3[9] , \R_DATA_TEMPR3[8] , 
+        \R_DATA_TEMPR3[7] , \R_DATA_TEMPR3[6] , \R_DATA_TEMPR3[5] , 
+        \R_DATA_TEMPR3[4] , \R_DATA_TEMPR3[3] , \R_DATA_TEMPR3[2] , 
+        \R_DATA_TEMPR3[1] , \R_DATA_TEMPR3[0] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[3][0] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, R_ADDR[10], R_ADDR[9]}), .A_CLK(CLK), 
+        .A_DIN({W_DATA[39], W_DATA[38], W_DATA[37], W_DATA[36], 
+        W_DATA[35], W_DATA[34], W_DATA[33], W_DATA[32], W_DATA[31], 
+        W_DATA[30], W_DATA[29], W_DATA[28], W_DATA[27], W_DATA[26], 
+        W_DATA[25], W_DATA[24], W_DATA[23], W_DATA[22], W_DATA[21], 
+        W_DATA[20]}), .A_REN(VCC), .A_WEN({WBYTE_EN[3], WBYTE_EN[2]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, W_ADDR[10], W_ADDR[9]}), .B_CLK(CLK), 
+        .B_DIN({W_DATA[19], W_DATA[18], W_DATA[17], W_DATA[16], 
+        W_DATA[15], W_DATA[14], W_DATA[13], W_DATA[12], W_DATA[11], 
+        W_DATA[10], W_DATA[9], W_DATA[8], W_DATA[7], W_DATA[6], 
+        W_DATA[5], W_DATA[4], W_DATA[3], W_DATA[2], W_DATA[1], 
+        W_DATA[0]}), .B_REN(VCC), .B_WEN({WBYTE_EN[1], WBYTE_EN[0]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[78]  (.A(\R_DATA_TEMPR0[78] ), .B(
+        \R_DATA_TEMPR1[78] ), .C(\R_DATA_TEMPR2[78] ), .D(
+        \R_DATA_TEMPR3[78] ), .Y(R_DATA[78]));
+    OR4 \OR4_R_DATA[13]  (.A(\R_DATA_TEMPR0[13] ), .B(
+        \R_DATA_TEMPR1[13] ), .C(\R_DATA_TEMPR2[13] ), .D(
+        \R_DATA_TEMPR3[13] ), .Y(R_DATA[13]));
+    OR4 \OR4_R_DATA[40]  (.A(\R_DATA_TEMPR0[40] ), .B(
+        \R_DATA_TEMPR1[40] ), .C(\R_DATA_TEMPR2[40] ), .D(
+        \R_DATA_TEMPR3[40] ), .Y(R_DATA[40]));
+    OR4 \OR4_R_DATA[47]  (.A(\R_DATA_TEMPR0[47] ), .B(
+        \R_DATA_TEMPR1[47] ), .C(\R_DATA_TEMPR2[47] ), .D(
+        \R_DATA_TEMPR3[47] ), .Y(R_DATA[47]));
+    OR4 \OR4_R_DATA[71]  (.A(\R_DATA_TEMPR0[71] ), .B(
+        \R_DATA_TEMPR1[71] ), .C(\R_DATA_TEMPR2[71] ), .D(
+        \R_DATA_TEMPR3[71] ), .Y(R_DATA[71]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%3%1%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R3C1 (.A_DOUT({
+        \R_DATA_TEMPR3[79] , \R_DATA_TEMPR3[78] , \R_DATA_TEMPR3[77] , 
+        \R_DATA_TEMPR3[76] , \R_DATA_TEMPR3[75] , \R_DATA_TEMPR3[74] , 
+        \R_DATA_TEMPR3[73] , \R_DATA_TEMPR3[72] , \R_DATA_TEMPR3[71] , 
+        \R_DATA_TEMPR3[70] , \R_DATA_TEMPR3[69] , \R_DATA_TEMPR3[68] , 
+        \R_DATA_TEMPR3[67] , \R_DATA_TEMPR3[66] , \R_DATA_TEMPR3[65] , 
+        \R_DATA_TEMPR3[64] , \R_DATA_TEMPR3[63] , \R_DATA_TEMPR3[62] , 
+        \R_DATA_TEMPR3[61] , \R_DATA_TEMPR3[60] }), .B_DOUT({
+        \R_DATA_TEMPR3[59] , \R_DATA_TEMPR3[58] , \R_DATA_TEMPR3[57] , 
+        \R_DATA_TEMPR3[56] , \R_DATA_TEMPR3[55] , \R_DATA_TEMPR3[54] , 
+        \R_DATA_TEMPR3[53] , \R_DATA_TEMPR3[52] , \R_DATA_TEMPR3[51] , 
+        \R_DATA_TEMPR3[50] , \R_DATA_TEMPR3[49] , \R_DATA_TEMPR3[48] , 
+        \R_DATA_TEMPR3[47] , \R_DATA_TEMPR3[46] , \R_DATA_TEMPR3[45] , 
+        \R_DATA_TEMPR3[44] , \R_DATA_TEMPR3[43] , \R_DATA_TEMPR3[42] , 
+        \R_DATA_TEMPR3[41] , \R_DATA_TEMPR3[40] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[3][1] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, R_ADDR[10], R_ADDR[9]}), .A_CLK(CLK), 
+        .A_DIN({W_DATA[79], W_DATA[78], W_DATA[77], W_DATA[76], 
+        W_DATA[75], W_DATA[74], W_DATA[73], W_DATA[72], W_DATA[71], 
+        W_DATA[70], W_DATA[69], W_DATA[68], W_DATA[67], W_DATA[66], 
+        W_DATA[65], W_DATA[64], W_DATA[63], W_DATA[62], W_DATA[61], 
+        W_DATA[60]}), .A_REN(VCC), .A_WEN({WBYTE_EN[7], WBYTE_EN[6]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, W_ADDR[10], W_ADDR[9]}), .B_CLK(CLK), 
+        .B_DIN({W_DATA[59], W_DATA[58], W_DATA[57], W_DATA[56], 
+        W_DATA[55], W_DATA[54], W_DATA[53], W_DATA[52], W_DATA[51], 
+        W_DATA[50], W_DATA[49], W_DATA[48], W_DATA[47], W_DATA[46], 
+        W_DATA[45], W_DATA[44], W_DATA[43], W_DATA[42], W_DATA[41], 
+        W_DATA[40]}), .B_REN(VCC), .B_WEN({WBYTE_EN[5], WBYTE_EN[4]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[54]  (.A(\R_DATA_TEMPR0[54] ), .B(
+        \R_DATA_TEMPR1[54] ), .C(\R_DATA_TEMPR2[54] ), .D(
+        \R_DATA_TEMPR3[54] ), .Y(R_DATA[54]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%0%0%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R0C0 (.A_DOUT({
+        \R_DATA_TEMPR0[39] , \R_DATA_TEMPR0[38] , \R_DATA_TEMPR0[37] , 
+        \R_DATA_TEMPR0[36] , \R_DATA_TEMPR0[35] , \R_DATA_TEMPR0[34] , 
+        \R_DATA_TEMPR0[33] , \R_DATA_TEMPR0[32] , \R_DATA_TEMPR0[31] , 
+        \R_DATA_TEMPR0[30] , \R_DATA_TEMPR0[29] , \R_DATA_TEMPR0[28] , 
+        \R_DATA_TEMPR0[27] , \R_DATA_TEMPR0[26] , \R_DATA_TEMPR0[25] , 
+        \R_DATA_TEMPR0[24] , \R_DATA_TEMPR0[23] , \R_DATA_TEMPR0[22] , 
+        \R_DATA_TEMPR0[21] , \R_DATA_TEMPR0[20] }), .B_DOUT({
+        \R_DATA_TEMPR0[19] , \R_DATA_TEMPR0[18] , \R_DATA_TEMPR0[17] , 
+        \R_DATA_TEMPR0[16] , \R_DATA_TEMPR0[15] , \R_DATA_TEMPR0[14] , 
+        \R_DATA_TEMPR0[13] , \R_DATA_TEMPR0[12] , \R_DATA_TEMPR0[11] , 
+        \R_DATA_TEMPR0[10] , \R_DATA_TEMPR0[9] , \R_DATA_TEMPR0[8] , 
+        \R_DATA_TEMPR0[7] , \R_DATA_TEMPR0[6] , \R_DATA_TEMPR0[5] , 
+        \R_DATA_TEMPR0[4] , \R_DATA_TEMPR0[3] , \R_DATA_TEMPR0[2] , 
+        \R_DATA_TEMPR0[1] , \R_DATA_TEMPR0[0] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[0][0] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, \BLKY1[0] , \BLKY0[0] }), .A_CLK(CLK), 
+        .A_DIN({W_DATA[39], W_DATA[38], W_DATA[37], W_DATA[36], 
+        W_DATA[35], W_DATA[34], W_DATA[33], W_DATA[32], W_DATA[31], 
+        W_DATA[30], W_DATA[29], W_DATA[28], W_DATA[27], W_DATA[26], 
+        W_DATA[25], W_DATA[24], W_DATA[23], W_DATA[22], W_DATA[21], 
+        W_DATA[20]}), .A_REN(VCC), .A_WEN({WBYTE_EN[3], WBYTE_EN[2]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, \BLKX1[0] , \BLKX0[0] }), .B_CLK(CLK), 
+        .B_DIN({W_DATA[19], W_DATA[18], W_DATA[17], W_DATA[16], 
+        W_DATA[15], W_DATA[14], W_DATA[13], W_DATA[12], W_DATA[11], 
+        W_DATA[10], W_DATA[9], W_DATA[8], W_DATA[7], W_DATA[6], 
+        W_DATA[5], W_DATA[4], W_DATA[3], W_DATA[2], W_DATA[1], 
+        W_DATA[0]}), .B_REN(VCC), .B_WEN({WBYTE_EN[1], WBYTE_EN[0]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[29]  (.A(\R_DATA_TEMPR0[29] ), .B(
+        \R_DATA_TEMPR1[29] ), .C(\R_DATA_TEMPR2[29] ), .D(
+        \R_DATA_TEMPR3[29] ), .Y(R_DATA[29]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%2%0%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R2C0 (.A_DOUT({
+        \R_DATA_TEMPR2[39] , \R_DATA_TEMPR2[38] , \R_DATA_TEMPR2[37] , 
+        \R_DATA_TEMPR2[36] , \R_DATA_TEMPR2[35] , \R_DATA_TEMPR2[34] , 
+        \R_DATA_TEMPR2[33] , \R_DATA_TEMPR2[32] , \R_DATA_TEMPR2[31] , 
+        \R_DATA_TEMPR2[30] , \R_DATA_TEMPR2[29] , \R_DATA_TEMPR2[28] , 
+        \R_DATA_TEMPR2[27] , \R_DATA_TEMPR2[26] , \R_DATA_TEMPR2[25] , 
+        \R_DATA_TEMPR2[24] , \R_DATA_TEMPR2[23] , \R_DATA_TEMPR2[22] , 
+        \R_DATA_TEMPR2[21] , \R_DATA_TEMPR2[20] }), .B_DOUT({
+        \R_DATA_TEMPR2[19] , \R_DATA_TEMPR2[18] , \R_DATA_TEMPR2[17] , 
+        \R_DATA_TEMPR2[16] , \R_DATA_TEMPR2[15] , \R_DATA_TEMPR2[14] , 
+        \R_DATA_TEMPR2[13] , \R_DATA_TEMPR2[12] , \R_DATA_TEMPR2[11] , 
+        \R_DATA_TEMPR2[10] , \R_DATA_TEMPR2[9] , \R_DATA_TEMPR2[8] , 
+        \R_DATA_TEMPR2[7] , \R_DATA_TEMPR2[6] , \R_DATA_TEMPR2[5] , 
+        \R_DATA_TEMPR2[4] , \R_DATA_TEMPR2[3] , \R_DATA_TEMPR2[2] , 
+        \R_DATA_TEMPR2[1] , \R_DATA_TEMPR2[0] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[2][0] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, R_ADDR[10], \BLKY0[0] }), .A_CLK(CLK), 
+        .A_DIN({W_DATA[39], W_DATA[38], W_DATA[37], W_DATA[36], 
+        W_DATA[35], W_DATA[34], W_DATA[33], W_DATA[32], W_DATA[31], 
+        W_DATA[30], W_DATA[29], W_DATA[28], W_DATA[27], W_DATA[26], 
+        W_DATA[25], W_DATA[24], W_DATA[23], W_DATA[22], W_DATA[21], 
+        W_DATA[20]}), .A_REN(VCC), .A_WEN({WBYTE_EN[3], WBYTE_EN[2]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, W_ADDR[10], \BLKX0[0] }), .B_CLK(CLK), 
+        .B_DIN({W_DATA[19], W_DATA[18], W_DATA[17], W_DATA[16], 
+        W_DATA[15], W_DATA[14], W_DATA[13], W_DATA[12], W_DATA[11], 
+        W_DATA[10], W_DATA[9], W_DATA[8], W_DATA[7], W_DATA[6], 
+        W_DATA[5], W_DATA[4], W_DATA[3], W_DATA[2], W_DATA[1], 
+        W_DATA[0]}), .B_REN(VCC), .B_WEN({WBYTE_EN[1], WBYTE_EN[0]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[64]  (.A(\R_DATA_TEMPR0[64] ), .B(
+        \R_DATA_TEMPR1[64] ), .C(\R_DATA_TEMPR2[64] ), .D(
+        \R_DATA_TEMPR3[64] ), .Y(R_DATA[64]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%1%0%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R1C0 (.A_DOUT({
+        \R_DATA_TEMPR1[39] , \R_DATA_TEMPR1[38] , \R_DATA_TEMPR1[37] , 
+        \R_DATA_TEMPR1[36] , \R_DATA_TEMPR1[35] , \R_DATA_TEMPR1[34] , 
+        \R_DATA_TEMPR1[33] , \R_DATA_TEMPR1[32] , \R_DATA_TEMPR1[31] , 
+        \R_DATA_TEMPR1[30] , \R_DATA_TEMPR1[29] , \R_DATA_TEMPR1[28] , 
+        \R_DATA_TEMPR1[27] , \R_DATA_TEMPR1[26] , \R_DATA_TEMPR1[25] , 
+        \R_DATA_TEMPR1[24] , \R_DATA_TEMPR1[23] , \R_DATA_TEMPR1[22] , 
+        \R_DATA_TEMPR1[21] , \R_DATA_TEMPR1[20] }), .B_DOUT({
+        \R_DATA_TEMPR1[19] , \R_DATA_TEMPR1[18] , \R_DATA_TEMPR1[17] , 
+        \R_DATA_TEMPR1[16] , \R_DATA_TEMPR1[15] , \R_DATA_TEMPR1[14] , 
+        \R_DATA_TEMPR1[13] , \R_DATA_TEMPR1[12] , \R_DATA_TEMPR1[11] , 
+        \R_DATA_TEMPR1[10] , \R_DATA_TEMPR1[9] , \R_DATA_TEMPR1[8] , 
+        \R_DATA_TEMPR1[7] , \R_DATA_TEMPR1[6] , \R_DATA_TEMPR1[5] , 
+        \R_DATA_TEMPR1[4] , \R_DATA_TEMPR1[3] , \R_DATA_TEMPR1[2] , 
+        \R_DATA_TEMPR1[1] , \R_DATA_TEMPR1[0] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[1][0] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, \BLKY1[0] , R_ADDR[9]}), .A_CLK(CLK), 
+        .A_DIN({W_DATA[39], W_DATA[38], W_DATA[37], W_DATA[36], 
+        W_DATA[35], W_DATA[34], W_DATA[33], W_DATA[32], W_DATA[31], 
+        W_DATA[30], W_DATA[29], W_DATA[28], W_DATA[27], W_DATA[26], 
+        W_DATA[25], W_DATA[24], W_DATA[23], W_DATA[22], W_DATA[21], 
+        W_DATA[20]}), .A_REN(VCC), .A_WEN({WBYTE_EN[3], WBYTE_EN[2]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, \BLKX1[0] , W_ADDR[9]}), .B_CLK(CLK), 
+        .B_DIN({W_DATA[19], W_DATA[18], W_DATA[17], W_DATA[16], 
+        W_DATA[15], W_DATA[14], W_DATA[13], W_DATA[12], W_DATA[11], 
+        W_DATA[10], W_DATA[9], W_DATA[8], W_DATA[7], W_DATA[6], 
+        W_DATA[5], W_DATA[4], W_DATA[3], W_DATA[2], W_DATA[1], 
+        W_DATA[0]}), .B_REN(VCC), .B_WEN({WBYTE_EN[1], WBYTE_EN[0]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[70]  (.A(\R_DATA_TEMPR0[70] ), .B(
+        \R_DATA_TEMPR1[70] ), .C(\R_DATA_TEMPR2[70] ), .D(
+        \R_DATA_TEMPR3[70] ), .Y(R_DATA[70]));
+    OR4 \OR4_R_DATA[33]  (.A(\R_DATA_TEMPR0[33] ), .B(
+        \R_DATA_TEMPR1[33] ), .C(\R_DATA_TEMPR2[33] ), .D(
+        \R_DATA_TEMPR3[33] ), .Y(R_DATA[33]));
+    OR4 \OR4_R_DATA[4]  (.A(\R_DATA_TEMPR0[4] ), .B(\R_DATA_TEMPR1[4] )
+        , .C(\R_DATA_TEMPR2[4] ), .D(\R_DATA_TEMPR3[4] ), .Y(R_DATA[4])
+        );
+    OR4 \OR4_R_DATA[77]  (.A(\R_DATA_TEMPR0[77] ), .B(
+        \R_DATA_TEMPR1[77] ), .C(\R_DATA_TEMPR2[77] ), .D(
+        \R_DATA_TEMPR3[77] ), .Y(R_DATA[77]));
+    OR4 \OR4_R_DATA[15]  (.A(\R_DATA_TEMPR0[15] ), .B(
+        \R_DATA_TEMPR1[15] ), .C(\R_DATA_TEMPR2[15] ), .D(
+        \R_DATA_TEMPR3[15] ), .Y(R_DATA[15]));
+    OR4 \OR4_R_DATA[28]  (.A(\R_DATA_TEMPR0[28] ), .B(
+        \R_DATA_TEMPR1[28] ), .C(\R_DATA_TEMPR2[28] ), .D(
+        \R_DATA_TEMPR3[28] ), .Y(R_DATA[28]));
+    OR4 \OR4_R_DATA[42]  (.A(\R_DATA_TEMPR0[42] ), .B(
+        \R_DATA_TEMPR1[42] ), .C(\R_DATA_TEMPR2[42] ), .D(
+        \R_DATA_TEMPR3[42] ), .Y(R_DATA[42]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%2%1%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R2C1 (.A_DOUT({
+        \R_DATA_TEMPR2[79] , \R_DATA_TEMPR2[78] , \R_DATA_TEMPR2[77] , 
+        \R_DATA_TEMPR2[76] , \R_DATA_TEMPR2[75] , \R_DATA_TEMPR2[74] , 
+        \R_DATA_TEMPR2[73] , \R_DATA_TEMPR2[72] , \R_DATA_TEMPR2[71] , 
+        \R_DATA_TEMPR2[70] , \R_DATA_TEMPR2[69] , \R_DATA_TEMPR2[68] , 
+        \R_DATA_TEMPR2[67] , \R_DATA_TEMPR2[66] , \R_DATA_TEMPR2[65] , 
+        \R_DATA_TEMPR2[64] , \R_DATA_TEMPR2[63] , \R_DATA_TEMPR2[62] , 
+        \R_DATA_TEMPR2[61] , \R_DATA_TEMPR2[60] }), .B_DOUT({
+        \R_DATA_TEMPR2[59] , \R_DATA_TEMPR2[58] , \R_DATA_TEMPR2[57] , 
+        \R_DATA_TEMPR2[56] , \R_DATA_TEMPR2[55] , \R_DATA_TEMPR2[54] , 
+        \R_DATA_TEMPR2[53] , \R_DATA_TEMPR2[52] , \R_DATA_TEMPR2[51] , 
+        \R_DATA_TEMPR2[50] , \R_DATA_TEMPR2[49] , \R_DATA_TEMPR2[48] , 
+        \R_DATA_TEMPR2[47] , \R_DATA_TEMPR2[46] , \R_DATA_TEMPR2[45] , 
+        \R_DATA_TEMPR2[44] , \R_DATA_TEMPR2[43] , \R_DATA_TEMPR2[42] , 
+        \R_DATA_TEMPR2[41] , \R_DATA_TEMPR2[40] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[2][1] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, R_ADDR[10], \BLKY0[0] }), .A_CLK(CLK), 
+        .A_DIN({W_DATA[79], W_DATA[78], W_DATA[77], W_DATA[76], 
+        W_DATA[75], W_DATA[74], W_DATA[73], W_DATA[72], W_DATA[71], 
+        W_DATA[70], W_DATA[69], W_DATA[68], W_DATA[67], W_DATA[66], 
+        W_DATA[65], W_DATA[64], W_DATA[63], W_DATA[62], W_DATA[61], 
+        W_DATA[60]}), .A_REN(VCC), .A_WEN({WBYTE_EN[7], WBYTE_EN[6]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, W_ADDR[10], \BLKX0[0] }), .B_CLK(CLK), 
+        .B_DIN({W_DATA[59], W_DATA[58], W_DATA[57], W_DATA[56], 
+        W_DATA[55], W_DATA[54], W_DATA[53], W_DATA[52], W_DATA[51], 
+        W_DATA[50], W_DATA[49], W_DATA[48], W_DATA[47], W_DATA[46], 
+        W_DATA[45], W_DATA[44], W_DATA[43], W_DATA[42], W_DATA[41], 
+        W_DATA[40]}), .B_REN(VCC), .B_WEN({WBYTE_EN[5], WBYTE_EN[4]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[21]  (.A(\R_DATA_TEMPR0[21] ), .B(
+        \R_DATA_TEMPR1[21] ), .C(\R_DATA_TEMPR2[21] ), .D(
+        \R_DATA_TEMPR3[21] ), .Y(R_DATA[21]));
+    RAM1K20 #( .RAMINDEX("MSS_LSRAM%2048-2048%80-80%POWER%0%1%TWO-PORT%ECC_EN-0")
+         )  MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM_R0C1 (.A_DOUT({
+        \R_DATA_TEMPR0[79] , \R_DATA_TEMPR0[78] , \R_DATA_TEMPR0[77] , 
+        \R_DATA_TEMPR0[76] , \R_DATA_TEMPR0[75] , \R_DATA_TEMPR0[74] , 
+        \R_DATA_TEMPR0[73] , \R_DATA_TEMPR0[72] , \R_DATA_TEMPR0[71] , 
+        \R_DATA_TEMPR0[70] , \R_DATA_TEMPR0[69] , \R_DATA_TEMPR0[68] , 
+        \R_DATA_TEMPR0[67] , \R_DATA_TEMPR0[66] , \R_DATA_TEMPR0[65] , 
+        \R_DATA_TEMPR0[64] , \R_DATA_TEMPR0[63] , \R_DATA_TEMPR0[62] , 
+        \R_DATA_TEMPR0[61] , \R_DATA_TEMPR0[60] }), .B_DOUT({
+        \R_DATA_TEMPR0[59] , \R_DATA_TEMPR0[58] , \R_DATA_TEMPR0[57] , 
+        \R_DATA_TEMPR0[56] , \R_DATA_TEMPR0[55] , \R_DATA_TEMPR0[54] , 
+        \R_DATA_TEMPR0[53] , \R_DATA_TEMPR0[52] , \R_DATA_TEMPR0[51] , 
+        \R_DATA_TEMPR0[50] , \R_DATA_TEMPR0[49] , \R_DATA_TEMPR0[48] , 
+        \R_DATA_TEMPR0[47] , \R_DATA_TEMPR0[46] , \R_DATA_TEMPR0[45] , 
+        \R_DATA_TEMPR0[44] , \R_DATA_TEMPR0[43] , \R_DATA_TEMPR0[42] , 
+        \R_DATA_TEMPR0[41] , \R_DATA_TEMPR0[40] }), .DB_DETECT(), 
+        .SB_CORRECT(), .ACCESS_BUSY(\ACCESS_BUSY[0][1] ), .A_ADDR({
+        R_ADDR[8], R_ADDR[7], R_ADDR[6], R_ADDR[5], R_ADDR[4], 
+        R_ADDR[3], R_ADDR[2], R_ADDR[1], R_ADDR[0], GND, GND, GND, GND, 
+        GND}), .A_BLK_EN({R_EN, \BLKY1[0] , \BLKY0[0] }), .A_CLK(CLK), 
+        .A_DIN({W_DATA[79], W_DATA[78], W_DATA[77], W_DATA[76], 
+        W_DATA[75], W_DATA[74], W_DATA[73], W_DATA[72], W_DATA[71], 
+        W_DATA[70], W_DATA[69], W_DATA[68], W_DATA[67], W_DATA[66], 
+        W_DATA[65], W_DATA[64], W_DATA[63], W_DATA[62], W_DATA[61], 
+        W_DATA[60]}), .A_REN(VCC), .A_WEN({WBYTE_EN[7], WBYTE_EN[6]}), 
+        .A_DOUT_EN(VCC), .A_DOUT_ARST_N(VCC), .A_DOUT_SRST_N(VCC), 
+        .B_ADDR({W_ADDR[8], W_ADDR[7], W_ADDR[6], W_ADDR[5], W_ADDR[4], 
+        W_ADDR[3], W_ADDR[2], W_ADDR[1], W_ADDR[0], GND, GND, GND, GND, 
+        GND}), .B_BLK_EN({W_EN, \BLKX1[0] , \BLKX0[0] }), .B_CLK(CLK), 
+        .B_DIN({W_DATA[59], W_DATA[58], W_DATA[57], W_DATA[56], 
+        W_DATA[55], W_DATA[54], W_DATA[53], W_DATA[52], W_DATA[51], 
+        W_DATA[50], W_DATA[49], W_DATA[48], W_DATA[47], W_DATA[46], 
+        W_DATA[45], W_DATA[44], W_DATA[43], W_DATA[42], W_DATA[41], 
+        W_DATA[40]}), .B_REN(VCC), .B_WEN({WBYTE_EN[5], WBYTE_EN[4]}), 
+        .B_DOUT_EN(VCC), .B_DOUT_ARST_N(VCC), .B_DOUT_SRST_N(VCC), 
+        .ECC_EN(GND), .BUSY_FB(GND), .A_WIDTH({VCC, GND, VCC}), 
+        .A_WMODE({GND, GND}), .A_BYPASS(VCC), .B_WIDTH({VCC, GND, VCC})
+        , .B_WMODE({GND, GND}), .B_BYPASS(VCC), .ECC_BYPASS(GND));
+    OR4 \OR4_R_DATA[53]  (.A(\R_DATA_TEMPR0[53] ), .B(
+        \R_DATA_TEMPR1[53] ), .C(\R_DATA_TEMPR2[53] ), .D(
+        \R_DATA_TEMPR3[53] ), .Y(R_DATA[53]));
+    CFG1 #( .INIT(2'h1) )  \INVBLKY0[0]  (.A(R_ADDR[9]), .Y(\BLKY0[0] )
+        );
+    OR4 \OR4_R_DATA[72]  (.A(\R_DATA_TEMPR0[72] ), .B(
+        \R_DATA_TEMPR1[72] ), .C(\R_DATA_TEMPR2[72] ), .D(
+        \R_DATA_TEMPR3[72] ), .Y(R_DATA[72]));
+    OR4 \OR4_R_DATA[19]  (.A(\R_DATA_TEMPR0[19] ), .B(
+        \R_DATA_TEMPR1[19] ), .C(\R_DATA_TEMPR2[19] ), .D(
+        \R_DATA_TEMPR3[19] ), .Y(R_DATA[19]));
+    OR4 \OR4_R_DATA[35]  (.A(\R_DATA_TEMPR0[35] ), .B(
+        \R_DATA_TEMPR1[35] ), .C(\R_DATA_TEMPR2[35] ), .D(
+        \R_DATA_TEMPR3[35] ), .Y(R_DATA[35]));
+    OR4 \OR4_R_DATA[5]  (.A(\R_DATA_TEMPR0[5] ), .B(\R_DATA_TEMPR1[5] )
+        , .C(\R_DATA_TEMPR2[5] ), .D(\R_DATA_TEMPR3[5] ), .Y(R_DATA[5])
+        );
+    OR4 \OR4_R_DATA[63]  (.A(\R_DATA_TEMPR0[63] ), .B(
+        \R_DATA_TEMPR1[63] ), .C(\R_DATA_TEMPR2[63] ), .D(
+        \R_DATA_TEMPR3[63] ), .Y(R_DATA[63]));
+    OR4 \OR4_R_DATA[20]  (.A(\R_DATA_TEMPR0[20] ), .B(
+        \R_DATA_TEMPR1[20] ), .C(\R_DATA_TEMPR2[20] ), .D(
+        \R_DATA_TEMPR3[20] ), .Y(R_DATA[20]));
+    OR4 \OR4_R_DATA[27]  (.A(\R_DATA_TEMPR0[27] ), .B(
+        \R_DATA_TEMPR1[27] ), .C(\R_DATA_TEMPR2[27] ), .D(
+        \R_DATA_TEMPR3[27] ), .Y(R_DATA[27]));
+    OR4 \OR4_R_DATA[7]  (.A(\R_DATA_TEMPR0[7] ), .B(\R_DATA_TEMPR1[7] )
+        , .C(\R_DATA_TEMPR2[7] ), .D(\R_DATA_TEMPR3[7] ), .Y(R_DATA[7])
+        );
+    OR4 \OR4_R_DATA[6]  (.A(\R_DATA_TEMPR0[6] ), .B(\R_DATA_TEMPR1[6] )
+        , .C(\R_DATA_TEMPR2[6] ), .D(\R_DATA_TEMPR3[6] ), .Y(R_DATA[6])
+        );
+    OR4 \OR4_R_DATA[18]  (.A(\R_DATA_TEMPR0[18] ), .B(
+        \R_DATA_TEMPR1[18] ), .C(\R_DATA_TEMPR2[18] ), .D(
+        \R_DATA_TEMPR3[18] ), .Y(R_DATA[18]));
+    CFG1 #( .INIT(2'h1) )  \INVBLKY1[0]  (.A(R_ADDR[10]), .Y(
+        \BLKY1[0] ));
+    OR4 \OR4_R_DATA[46]  (.A(\R_DATA_TEMPR0[46] ), .B(
+        \R_DATA_TEMPR1[46] ), .C(\R_DATA_TEMPR2[46] ), .D(
+        \R_DATA_TEMPR3[46] ), .Y(R_DATA[46]));
+    OR4 \OR4_R_DATA[39]  (.A(\R_DATA_TEMPR0[39] ), .B(
+        \R_DATA_TEMPR1[39] ), .C(\R_DATA_TEMPR2[39] ), .D(
+        \R_DATA_TEMPR3[39] ), .Y(R_DATA[39]));
+    GND GND_power_inst1 (.Y(GND_power_net1));
+    VCC VCC_power_inst1 (.Y(VCC_power_net1));
+    
+endmodule

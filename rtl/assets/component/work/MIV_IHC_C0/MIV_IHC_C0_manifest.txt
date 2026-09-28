@@ -1,0 +1,16 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:45 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  MIV_IHC_C0
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MIV_IHC_C0/MIV_IHC_C0_0/rtl/core/core_merged/miv_ihc_core_merged.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MIV_IHC_C0/MIV_IHC_C0.v
+
+Stimulus files for all Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MIV_IHC_C0/MIV_IHC_C0_0/rtl/test/user/testbench.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MIV_IHC_C0/MIV_IHC_C0_0/coreparameters.v
+

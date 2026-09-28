@@ -1,1 +1,0 @@
-@W: MT530 :"/home/ubuntu/GEMMCNN/hdl/gemm_skew_buffer.v":24:16:24:21|Found inferred clock gemm_dma_top|clk which controls 14108 sequential elements including u_core.u_skew.GEN_ROW_SKEW_3_\.SKEW_N\.delay_pipe_2__7_. This clock has no specified timing constraint which may adversely impact design performance. 

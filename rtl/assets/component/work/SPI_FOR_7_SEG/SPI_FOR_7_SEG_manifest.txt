@@ -1,0 +1,31 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:45 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  SPI_FOR_7_SEG
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/corespi.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/spi.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/spi_chanctrl.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/spi_clockmux.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/spi_control.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/spi_fifo.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/core/spi_rf.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/SPI_FOR_7_SEG/SPI_FOR_7_SEG.v
+
+Stimulus files for all Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/mti/bfmtovec.exe
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/mti/bfmtovec.lin
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/mti/bfmtovec_compile.do
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/mti/user_tb.bfm
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/mti/wave.do
+
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/amba_bfm/bfm_ahbtoapb.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/amba_bfm/bfm_apb.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/amba_bfm/bfm_main.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/amba_bfm/bfm_package.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/CORESPI/5.2.104/rtl/vlog/test/user/testbench.v
+

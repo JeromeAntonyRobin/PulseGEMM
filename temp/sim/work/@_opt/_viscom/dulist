@@ -1,5 +1,0 @@
-2 16 gemm_skew_buffer 4 fast 34 /home/ubuntu/GEMMCNN/temp/sim/work 1 0 0 0 3099 0
-2 7 gemm_pe 4 fast 34 /home/ubuntu/GEMMCNN/temp/sim/work 1 0 0 0 65 0
-2 18 gemm_systolic_core 4 fast 34 /home/ubuntu/GEMMCNN/temp/sim/work 1 0 0 0 31035 0
-1 12 gemm_dma_top 4 fast 34 /home/ubuntu/GEMMCNN/temp/sim/work 1 0 131072 0 31870 0
-1 11 tb_gemm_dma 4 fast 34 /home/ubuntu/GEMMCNN/temp/sim/work 1 0 262144 0 32543 0

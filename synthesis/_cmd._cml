@@ -1,1 +1,0 @@
--link -encrypt -top gemm_dma_top -osyn /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_comp.srs /home/ubuntu/GEMMCNN/synthesis/synwork/layer0.srs  -jobname linker  

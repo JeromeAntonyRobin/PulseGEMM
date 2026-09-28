@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="drcss.xsl"?>
+<drcreport>
+  <header>FIC_0_PERIPHERALS</header>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Unconnected Bus Interface</message>
+    <detail>Unconnected bus interface pin DMA_INITIATOR:AXI4mmaster0</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/DMA_INITIATOR:AXI4mmaster0</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message> bus interface data width mismatch</message>
+    <detail> There is a data width mismatch between DMA_INITIATOR:AXI4mmaster1:MASTER1_RDATA[0-63] and GEMM_DMA_TOP:m_axi:m_axi_rdata[0-31] which may result in a loss of data.</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/DMA_INITIATOR:AXI4mmaster1</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Unconnected Bus Interface</message>
+    <detail>Unconnected bus interface pin FIC0_INITIATOR:AXI4mslave0</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/FIC0_INITIATOR:AXI4mslave0</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message> bus interface ID width mismatch</message>
+    <detail> There is an ID width mismatch between FIC0_INITIATOR:AXI4mslave1:SLAVE1_AWID[0-8] and MSS_LSRAM:AXI4_Slave:AWID[0-7] which may result in a loss of data.</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/FIC0_INITIATOR:AXI4mslave1</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message> bus interface ID width mismatch</message>
+    <detail> There is an ID width mismatch between FIC0_INITIATOR:AXI4mslave2:SLAVE2_AWID[0-8] and GEMM_DMA_TOP:s_axi:[0--1] which may result in a loss of data.</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/FIC0_INITIATOR:AXI4mslave2</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin GEMM_DMA_TOP:irq</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/GEMM_DMA_TOP:irq</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin GEMM_DMA_TOP:led_busy</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/GEMM_DMA_TOP:led_busy</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin GEMM_DMA_TOP:led_done</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_0_PERIPHERALS/pins/GEMM_DMA_TOP:led_done</crossprobe>
+  </drc>
+</drcreport>

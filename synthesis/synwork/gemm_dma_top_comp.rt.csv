@@ -1,2 +1,0 @@
-Library, Design Unit ,Compile time , Hardware Gen ,Optimization Stg1 ,Optimization Stg2 , Peak Mem Usage, Incr Mem Usage, Hardware Gen ,Optimization Stg1 ,Optimization Stg2
-work, gemm_dma_top,0h:00m:01s,0h:00m:00s,0h:00m:00s,0h:00m:01s,   320 MB,    61 MB,     0 MB,     7 MB,    54 MB

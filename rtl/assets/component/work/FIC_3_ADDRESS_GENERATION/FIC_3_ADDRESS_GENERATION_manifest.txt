@@ -1,0 +1,11 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:44 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  FIC_3_ADDRESS_GENERATION
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/FIC_3_ADDRESS_GENERATION/FIC_3_ADDRESS_GENERATION.v
+

@@ -1,1 +1,0 @@
- -link  -top  gemm_dma_top  -multisrs  /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_comp.srs  -osyn  /home/ubuntu/GEMMCNN/synthesis/synwork/gemm_dma_top_mult.srs  -log  /home/ubuntu/GEMMCNN/synthesis/synlog/gemm_dma_top_multi_srs_gen.srr 

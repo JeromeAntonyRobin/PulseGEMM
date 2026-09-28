@@ -1,4 +1,0 @@
-**** Begin Compile Point : gemm_top ****
-**** End Compile Point : gemm_top ****
-**** Begin Compile Point : gemm_systolic_core_16s_46s ****
-**** End Compile Point : gemm_systolic_core_16s_46s ****

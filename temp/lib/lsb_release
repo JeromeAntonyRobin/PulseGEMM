@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "No LSB modules are available."
-echo "Distributor ID: Ubuntu"
-echo "Description:    Ubuntu 22.04.2 LTS"
-echo "Release:        22.04"
-echo "Codename:       jammy"

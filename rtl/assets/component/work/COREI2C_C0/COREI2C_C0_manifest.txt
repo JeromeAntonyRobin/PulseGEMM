@@ -1,0 +1,18 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:44 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  COREI2C_C0
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/COREI2C/7.2.101/rtl/vlog/core/corei2creal.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/COREI2C_C0/COREI2C_C0_0/rtl/vlog/core/corei2c.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/COREI2C_C0/COREI2C_C0.v
+
+Stimulus files for all Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/COREI2C/7.2.101/rtl/vlog/test/user/i2c_spk.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/COREI2C_C0/COREI2C_C0_0/rtl/vlog/test/user/tb_user_corei2c.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/COREI2C_C0/COREI2C_C0_0/coreparameters.v
+

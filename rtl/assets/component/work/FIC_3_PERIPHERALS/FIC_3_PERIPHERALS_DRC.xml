@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="drcss.xsl"?>
+<drcreport>
+  <header>FIC_3_PERIPHERALS</header>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message> bus interface data width mismatch</message>
+    <detail> There is a data width mismatch between FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_02xx:APBmslave0_PWDATAS[0-31] and CORE_I2C_C0_0_WRAPPER_1:APBslave:APBslave_PWDATA[0-7] which may result in a loss of data.</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_3_PERIPHERALS/pins/FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_02xx</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message> bus interface data width mismatch</message>
+    <detail> There is a data width mismatch between FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_03xx:APBmslave0_PWDATAS[0-31] and CoreUARTapb_C0_0:APB_bif:PWDATA[0-7] which may result in a loss of data.</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_3_PERIPHERALS/pins/FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_03xx</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/ubuntu/microchip/Libero_SoC_2026.1/Libero_SoC/Designer/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin SPI_FOR_7_SEG_0:SPIOEN</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FIC_3_PERIPHERALS/pins/SPI_FOR_7_SEG_0:SPIOEN</crossprobe>
+  </drc>
+</drcreport>

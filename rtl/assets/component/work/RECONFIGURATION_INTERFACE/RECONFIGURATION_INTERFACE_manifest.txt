@@ -1,0 +1,12 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:45 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  RECONFIGURATION_INTERFACE
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/RECONFIGURATION_INTERFACE/RECONFIGURATION_INTERFACE_0/RECONFIGURATION_INTERFACE_RECONFIGURATION_INTERFACE_0_PF_DRI.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/RECONFIGURATION_INTERFACE/RECONFIGURATION_INTERFACE.v
+

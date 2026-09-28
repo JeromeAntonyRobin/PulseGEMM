@@ -1,0 +1,22 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:45 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  corepwm_C0
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/rtl/vlog/core/reg_if.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/rtl/vlog/core/tach_if.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/rtl/vlog/core/pwm_gen.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/rtl/vlog/core/timebase.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/rtl/vlog/core/corepwm.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/corepwm_C0/corepwm_C0.v
+
+Stimulus files for all Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/mti/scripts/wave_usertb_vlog.do
+
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/coreparameters.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/Actel/DirectCore/corepwm/4.5.100/rtl/vlog/test/user/tb_user_corepwm.v
+

@@ -1,0 +1,18 @@
+Microchip Technology Inc. - Microchip Libero Software Release 2026.1 (Version 2026.1.0.17)
+
+Date      :  Sat Sep 26 23:27:44 2026
+Project   :  /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY
+Component :  MSS_LSRAM
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/COREAXI4SRAM_0/rtl/vlog/core/CoreAXI4SRAM.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/COREAXI4SRAM_0/rtl/vlog/core/CoreAXI4SRAM_MAINCTRL.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/COREAXI4SRAM_0/rtl/vlog/core/CoreAXI4SRAM_MAINCTRL_RT.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/COREAXI4SRAM_0/rtl/vlog/core/CoreAXI4SRAM_MAINCTRL_ECC.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/COREAXI4SRAM_0/rtl/vlog/core/CoreAXI4SRAM_MAINCTRL_ECC_RT.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/COREAXI4SRAM_0/rtl/vlog/core/CoreAXI4SRAM_SLVIF.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/PF_TPSRAM_AHB_AXI_0/MSS_LSRAM_PF_TPSRAM_AHB_AXI_0_PF_TPSRAM.v
+    /home/ubuntu/GEMMCNN/temp/ref_design/MPFS_DISCOVERY/component/work/MSS_LSRAM/MSS_LSRAM.v
+
