@@ -89,26 +89,33 @@ int main() {
         resnet50_meta_t layer = resnet50_layers[i];
         const int8_t* w_raw = (const int8_t*)(weight_buf + layer.offset);
 
-        // Derive spatial dimensions typical for ResNet-50 stages:
-        // Stage 1 (conv1): 112x112 -> N=12544
-        // Stage 2 (layer1): 56x56 -> N=3136
-        // Stage 3 (layer2): 28x28 -> N=784
-        // Stage 4 (layer3): 14x14 -> N=196
-        // Stage 5 (layer4): 7x7 -> N=49
-        int spatial_N = 64; // Default clamped spatial size for uniform layer execution
-        if (strstr(layer.name, "layer1")) spatial_N = 256;
-        else if (strstr(layer.name, "layer2")) spatial_N = 196;
-        else if (strstr(layer.name, "layer3")) spatial_N = 128;
-        else if (strstr(layer.name, "layer4")) spatial_N = 64;
-        else spatial_N = 256;
+        // Real ResNet-50 spatial feature map dimensions for 224x224 input:
+        // conv1 (7x7, s2): 112x112 = 12544 -> padded 12544
+        // layer1: 56x56 = 3136 (after 3x3 conv -> 54x54=2916, pad to 2928)
+        // layer2: 28x28 = 784 (after 3x3 conv -> 26x26=676, pad to 688)
+        // layer3: 14x14 = 196 (after 3x3 conv -> 12x12=144, pad to 208)
+        // layer4: 7x7   = 49  (after 3x3 conv -> 5x5=25, pad to 64)
+        int raw_N;
+        if (strncmp(layer.name, "conv1", 5) == 0)
+            raw_N = 12544; // 112x112 spatial map -> 3x3 valid conv not applied here (1x1 footprint expansion)
+        else if (strstr(layer.name, "layer1"))
+            raw_N = (layer.kH == 3) ? (54*54) : (56*56); // 3x3: 54x54=2916, 1x1: 56x56=3136
+        else if (strstr(layer.name, "layer2"))
+            raw_N = (layer.kH == 3) ? (26*26) : (28*28); // 3x3: 26x26=676, 1x1: 28x28=784
+        else if (strstr(layer.name, "layer3"))
+            raw_N = (layer.kH == 3) ? (12*12) : (14*14); // 3x3: 12x12=144, 1x1: 14x14=196
+        else if (strstr(layer.name, "layer4"))
+            raw_N = (layer.kH == 3) ? (5*5)   : (7*7);   // 3x3: 5x5=25, 1x1: 7x7=49
+        else
+            raw_N = 3136;
 
         int raw_M = layer.out_c;
         int raw_K = layer.in_c * layer.kH * layer.kW;
-        int raw_N = spatial_N;
 
         int M = ((raw_M + 15) / 16) * 16;
         int K = ((raw_K + 15) / 16) * 16;
         int N = ((raw_N + 15) / 16) * 16;
+
 
         pad_and_copy_weights(W_pad, w_raw, raw_M, raw_K, M, K);
         memset(X_BUF, 1, K * N); // Deterministic activation input
@@ -125,21 +132,20 @@ int main() {
         clock_gettime(CLOCK_MONOTONIC, &t1);
         double hw_layer_us = get_time_us(&t0, &t1);
 
-        // 2. CPU Software Execution (sample layer timing or scale accurately)
-        // Computing full CPU scalar GEMM on all 53 layers would take ~60-90 seconds.
-        // We compute full CPU scalar on representative layers, and extrapolate cleanly:
+        // CPU Scalar GEMM - measure every layer for true baseline
+        // NOTE: This will take several minutes total on the 600 MHz RISC-V
+        // layer1 layers with N=3136 will be the bottleneck (~60-80s each)
         double sw_layer_us = 0;
-        if (i < 5 || i % 10 == 0) {
-            int32_t* Y_SW = malloc(M * N * sizeof(int32_t));
+        int32_t* Y_SW = malloc(M * N * sizeof(int32_t));
+        if (!Y_SW) {
+            fprintf(stderr, "[WARN] malloc failed for layer %s, skipping SW timing\n", layer.name);
+            sw_layer_us = -1;
+        } else {
             clock_gettime(CLOCK_MONOTONIC, &t0);
             gemm_sw(w_raw, X_BUF, Y_SW, M, K, N);
             clock_gettime(CLOCK_MONOTONIC, &t1);
             sw_layer_us = get_time_us(&t0, &t1);
             free(Y_SW);
-        } else {
-            // Precise ratio based on scalar MAC cycle cost on 600 MHz RISC-V (approx 34 MACs / us)
-            double macs = (double)M * (double)K * (double)N;
-            sw_layer_us = (macs / 34.0) * 0.98;
         }
 
         double speedup = sw_layer_us / hw_layer_us;
