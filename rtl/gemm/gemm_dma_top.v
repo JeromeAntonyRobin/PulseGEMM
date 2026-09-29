@@ -106,6 +106,26 @@ module gemm_dma_top #(
     reg [31:0] bounds_reg;
     reg [15:0] tile_n_count_reg;
 
+    // Auto-loop mode registers (ctrl_reg[5] = auto_loop_en)
+    // When set, hardware manages all (M/16 × N/16 × K/16) tile iterations internally
+    reg [15:0] al_dim_M_reg;    // Total M dimension (must be multiple of 16)
+    reg [15:0] al_dim_K_reg;    // Total K dimension (must be multiple of 16)
+    reg [15:0] al_dim_N_reg;    // Total N dimension (must be multiple of 16)
+    reg [31:0] al_base_a_reg;   // Physical base address of matrix A
+    reg [31:0] al_base_b_reg;   // Physical base address of matrix B
+    reg [31:0] al_base_c_reg;   // Physical base address of matrix C
+
+    // Auto-loop runtime tile counters
+    reg [15:0] al_m_idx;        // Current M offset (multiple of 16)
+    reg [15:0] al_k_idx;        // Current K offset (multiple of 16)
+    reg [15:0] al_n_idx;        // Current N offset (multiple of 16)
+    reg [31:0] al_cur_a;        // DDR address of current A tile
+    reg [31:0] al_cur_b;        // DDR address of current B tile
+    reg [31:0] al_cur_c;        // DDR address of current C tile
+    reg [31:0] al_a_row_base;   // A DDR address at start of current m-row-block (k=0)
+    reg [31:0] al_b_col_base;   // B DDR address at start of current n-col-block (k=0)
+    reg [31:0] al_c_row_base;   // C DDR address at start of current m-row-block (n=0)
+
     reg        dma_busy;
     reg        dma_done;
     reg        dma_err;
@@ -116,6 +136,12 @@ module gemm_dma_top #(
 
     assign led_busy = dma_busy;
     assign led_done = dma_done;
+    wire auto_loop_en = ctrl_reg[5]; // Bit 5: hardware auto-loop mode
+
+    // Effective tile dimensions: override for auto-loop mode (always 16x16)
+    wire [4:0]  eff_tile_M  = auto_loop_en ? 5'd16  : tile_M;
+    wire [4:0]  eff_tile_N  = auto_loop_en ? 5'd16  : tile_N;
+    wire [15:0] eff_k_total = auto_loop_en ? 16'd16 : k_total;
 
     // Performance Counters
     reg [31:0] perf_fetch_a_cycles;
@@ -142,6 +168,21 @@ module gemm_dma_top #(
             stride_c_reg      <= 0;
             bounds_reg        <= 0;
             tile_n_count_reg  <= 16'd1;
+            al_dim_M_reg      <= 0;
+            al_dim_K_reg      <= 0;
+            al_dim_N_reg      <= 0;
+            al_base_a_reg     <= 0;
+            al_base_b_reg     <= 0;
+            al_base_c_reg     <= 0;
+            al_m_idx          <= 0;
+            al_k_idx          <= 0;
+            al_n_idx          <= 0;
+            al_cur_a          <= 0;
+            al_cur_b          <= 0;
+            al_cur_c          <= 0;
+            al_a_row_base     <= 0;
+            al_b_col_base     <= 0;
+            al_c_row_base     <= 0;
         end else begin
             // Self-clearing control bits
             if (ctrl_reg[3]) ctrl_reg[3] <= 1'b0;
@@ -163,6 +204,12 @@ module gemm_dma_top #(
                     8'h1C: stride_c_reg      <= s_axi_wdata[15:0];
                     8'h20: bounds_reg        <= s_axi_wdata;
                     8'h24: tile_n_count_reg  <= s_axi_wdata[15:0];
+                    8'h28: al_dim_M_reg      <= s_axi_wdata[15:0];
+                    8'h2C: al_dim_K_reg      <= s_axi_wdata[15:0];
+                    8'h30: al_dim_N_reg      <= s_axi_wdata[15:0];
+                    8'h34: al_base_a_reg     <= s_axi_wdata;
+                    8'h38: al_base_b_reg     <= s_axi_wdata;
+                    8'h3C: al_base_c_reg     <= s_axi_wdata;
                 endcase
             end else begin
                 s_axi_awready <= 1'b0;
@@ -189,6 +236,12 @@ module gemm_dma_top #(
                     8'h1C: s_axi_rdata <= perf_compute_cycles;
                     8'h20: s_axi_rdata <= perf_store_c_cycles;
                     8'h24: s_axi_rdata <= {16'd0, tile_n_count_reg};
+                    8'h28: s_axi_rdata <= {16'd0, al_dim_M_reg};
+                    8'h2C: s_axi_rdata <= {16'd0, al_dim_K_reg};
+                    8'h30: s_axi_rdata <= {16'd0, al_dim_N_reg};
+                    8'h34: s_axi_rdata <= al_base_a_reg;
+                    8'h38: s_axi_rdata <= al_base_b_reg;
+                    8'h3C: s_axi_rdata <= al_base_c_reg;
                     default: s_axi_rdata <= 32'd0;
                 endcase
             end else begin
@@ -405,18 +458,39 @@ module gemm_dma_top #(
                 // ----------------------------------------------------------
                 DMA_IDLE: begin
                     if (ctrl_reg[0]) begin
-                        dma_busy      <= 1'b1;
-                        dma_done      <= 1'b0;
-                        k_rem_dma     <= k_total;
-                        cur_addr_a    <= src_addr_a_reg;
-                        cur_addr_b    <= src_addr_b_reg;
-                        cur_addr_c    <= dst_addr_c_reg;
-                        dma_buf_sel   <= 0;
-                        dma_row_cnt   <= 0;
-                        flag_clear_acc <= ctrl_reg[1];
-                        flag_store_c  <= ctrl_reg[2];
-                        n_rem <= (tile_n_count_reg > 0) ? tile_n_count_reg - 1 : 0;
-                        dma_state     <= DMA_FETCH_A_ADDR;
+                        dma_busy    <= 1'b1;
+                        dma_done    <= 1'b0;
+                        dma_buf_sel <= 0;
+                        dma_row_cnt <= 0;
+                        if (auto_loop_en) begin
+                            // AUTO-LOOP: hardware manages all (M,N,K) tile iterations
+                            al_m_idx      <= 0;
+                            al_k_idx      <= 0;
+                            al_n_idx      <= 0;
+                            al_cur_a      <= al_base_a_reg;
+                            al_cur_b      <= al_base_b_reg;
+                            al_cur_c      <= al_base_c_reg;
+                            al_a_row_base <= al_base_a_reg;
+                            al_b_col_base <= al_base_b_reg;
+                            al_c_row_base <= al_base_c_reg;
+                            cur_addr_a    <= al_base_a_reg;
+                            cur_addr_b    <= al_base_b_reg;
+                            cur_addr_c    <= al_base_c_reg;
+                            k_rem_dma     <= 16; // one K-slice per DMA launch
+                            n_rem         <= 0;  // disable legacy N-loop
+                            flag_clear_acc <= 1'b1; // first tile always clears
+                            flag_store_c   <= (al_dim_K_reg <= 16) ? 1'b1 : 1'b0;
+                        end else begin
+                            // LEGACY single-tile mode (unchanged)
+                            k_rem_dma     <= k_total;
+                            cur_addr_a    <= src_addr_a_reg;
+                            cur_addr_b    <= src_addr_b_reg;
+                            cur_addr_c    <= dst_addr_c_reg;
+                            flag_clear_acc <= ctrl_reg[1];
+                            flag_store_c  <= ctrl_reg[2];
+                            n_rem <= (tile_n_count_reg > 0) ? tile_n_count_reg - 1 : 0;
+                        end
+                        dma_state <= DMA_FETCH_A_ADDR;
                     end
                 end
 
@@ -424,7 +498,7 @@ module gemm_dma_top #(
                 // FETCH A — row-by-row or single-burst (a_burst_ok)
                 // ----------------------------------------------------------
                 DMA_FETCH_A_ADDR: begin
-                    if (dma_row_cnt < tile_M) begin
+                    if (dma_row_cnt < eff_tile_M) begin
                         if (dma_row_cnt > 0 || filled_tiles < 2) begin
                             if (a_burst_ok && dma_row_cnt == 0) begin
                                 // ---- BURST PATH: all tile_M rows in one AR ----
@@ -787,7 +861,7 @@ module gemm_dma_top #(
                 // STORE C — per-row write bursts (unchanged)
                 // ----------------------------------------------------------
                 DMA_STORE_C_ADDR: begin
-                    if (dma_row_cnt < tile_M) begin
+                    if (dma_row_cnt < eff_tile_M) begin
                         m_axi_awaddr  <= cur_addr_c + ((dma_row_cnt * stride_c_reg) << 2);
                         m_axi_awlen   <= (tile_N > 0) ? ((tile_N + 1) >> 1) - 8'd1 : 8'd0;
                         m_axi_awvalid <= 1'b1;
@@ -835,7 +909,77 @@ module gemm_dma_top #(
 
                 // ----------------------------------------------------------
                 DMA_DONE: begin
-                    if (n_rem > 0) begin
+                    if (auto_loop_en) begin
+                        // AUTO-LOOP: advance (K→N→M) counters in RTL, zero CPU involvement
+                        // Address arithmetic uses only shifts and adds (no multipliers):
+                        //   A: block-interleaved, each block = 256 bytes
+                        //   B: block-interleaved, stride between k-rows = al_dim_N_reg * 16
+                        //   C: row stride = stride_c_reg << 6 bytes (16 rows * stride_c * 4)
+                        dma_buf_sel  <= 0;
+                        dma_row_cnt  <= 0;
+                        dma_done     <= 1'b0;
+
+                        if (al_k_idx + 16 < al_dim_K_reg) begin
+                            // ---- Advance K: same (m,n), next k-slice ----
+                            al_k_idx   <= al_k_idx + 16;
+                            al_cur_a   <= al_cur_a + 32'd256;
+                            al_cur_b   <= al_cur_b + ({16'd0, al_dim_N_reg} << 4);
+                            cur_addr_a <= al_cur_a + 32'd256;
+                            cur_addr_b <= al_cur_b + ({16'd0, al_dim_N_reg} << 4);
+                            cur_addr_c <= al_cur_c;
+                            k_rem_dma  <= 16;
+                            flag_clear_acc <= 1'b0; // accumulate into C
+                            flag_store_c   <= ((al_k_idx + 32) >= al_dim_K_reg) ? 1'b1 : 1'b0;
+                            dma_n_loop_restart <= 1'b1;
+                            dma_state  <= DMA_FETCH_A_ADDR;
+
+                        end else if (al_n_idx + 16 < al_dim_N_reg) begin
+                            // ---- Advance N: same m, next n-slice, reset k ----
+                            al_n_idx      <= al_n_idx + 16;
+                            al_k_idx      <= 0;
+                            al_b_col_base <= al_b_col_base + 32'd256;
+                            al_cur_a      <= al_a_row_base;
+                            al_cur_b      <= al_b_col_base + 32'd256;
+                            al_cur_c      <= al_cur_c + 32'd64;
+                            cur_addr_a    <= al_a_row_base;
+                            cur_addr_b    <= al_b_col_base + 32'd256;
+                            cur_addr_c    <= al_cur_c + 32'd64;
+                            k_rem_dma     <= 16;
+                            flag_clear_acc <= 1'b1;
+                            flag_store_c   <= (al_dim_K_reg <= 16) ? 1'b1 : 1'b0;
+                            dma_n_loop_restart <= 1'b1;
+                            dma_state     <= DMA_FETCH_A_ADDR;
+
+                        end else if (al_m_idx + 16 < al_dim_M_reg) begin
+                            // ---- Advance M: next m-slice, reset n and k ----
+                            al_m_idx      <= al_m_idx + 16;
+                            al_n_idx      <= 0;
+                            al_k_idx      <= 0;
+                            al_a_row_base <= al_a_row_base + ({16'd0, al_dim_K_reg} << 4);
+                            al_cur_a      <= al_a_row_base + ({16'd0, al_dim_K_reg} << 4);
+                            al_b_col_base <= al_base_b_reg;
+                            al_cur_b      <= al_base_b_reg;
+                            al_c_row_base <= al_c_row_base + ({16'd0, stride_c_reg} << 6);
+                            al_cur_c      <= al_c_row_base + ({16'd0, stride_c_reg} << 6);
+                            cur_addr_a    <= al_a_row_base + ({16'd0, al_dim_K_reg} << 4);
+                            cur_addr_b    <= al_base_b_reg;
+                            cur_addr_c    <= al_c_row_base + ({16'd0, stride_c_reg} << 6);
+                            k_rem_dma     <= 16;
+                            flag_clear_acc <= 1'b1;
+                            flag_store_c   <= (al_dim_K_reg <= 16) ? 1'b1 : 1'b0;
+                            dma_n_loop_restart <= 1'b1;
+                            dma_state     <= DMA_FETCH_A_ADDR;
+
+                        end else begin
+                            // ---- All (M,N,K) tiles complete ----
+                            dma_busy  <= 1'b0;
+                            dma_done  <= 1'b1;
+                            irq       <= 1'b1;
+                            dma_state <= DMA_IDLE;
+                        end
+
+                    end else if (n_rem > 0) begin
+                        // LEGACY N-loop path (unchanged)
                         n_rem              <= n_rem - 1;
                         k_rem_dma          <= k_total;
                         cur_addr_a         <= src_addr_a_reg;
@@ -847,6 +991,7 @@ module gemm_dma_top #(
                         dma_n_loop_restart <= 1'b1;
                         dma_state          <= DMA_FETCH_A_ADDR;
                     end else begin
+                        // LEGACY complete
                         dma_busy  <= 1'b0;
                         dma_done  <= 1'b1;
                         dma_state <= DMA_IDLE;
@@ -875,7 +1020,7 @@ module gemm_dma_top #(
             case (comp_state)
                 COMP_IDLE: begin
                     if (ctrl_reg[0] || dma_n_loop_restart) begin
-                        k_rem_comp       <= k_total;
+                        k_rem_comp       <= eff_k_total;
                         compute_all_done <= 0;
                         comp_buf_sel     <= 0;
                         wait_for_busy    <= 0;
@@ -887,7 +1032,7 @@ module gemm_dma_top #(
                 end
                 COMP_START: begin
                     core_start     <= 1'b1;
-                    core_clear_acc <= (k_rem_comp == k_total) ? flag_clear_acc : 1'b0;
+                    core_clear_acc <= (k_rem_comp == eff_k_total) ? flag_clear_acc : 1'b0;
                     wait_for_busy  <= 1'b1;
                     comp_state     <= COMP_RUN;
                 end
