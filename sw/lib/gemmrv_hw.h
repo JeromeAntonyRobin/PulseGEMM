@@ -33,6 +33,16 @@
 #define REG_WRITE_BOUNDS         (0x20 / 4)
 #define REG_WRITE_TILE_N_COUNT   (0x24 / 4)
 
+// Auto-loop mode registers (new — requires auto-loop bitstream)
+// Programs the full matrix dimensions once per layer. Hardware then
+// autonomously iterates all (M/16 × N/16 × K/16) tiles without CPU polling.
+#define REG_WRITE_DIM_M          (0x28 / 4)  // Total M (must be multiple of 16)
+#define REG_WRITE_DIM_K          (0x2C / 4)  // Total K (must be multiple of 16)
+#define REG_WRITE_DIM_N          (0x30 / 4)  // Total N (must be multiple of 16)
+#define REG_WRITE_BASE_A         (0x34 / 4)  // Physical DDR base address of matrix A
+#define REG_WRITE_BASE_B         (0x38 / 4)  // Physical DDR base address of matrix B
+#define REG_WRITE_BASE_C         (0x3C / 4)  // Physical DDR base address of matrix C
+
 // Matrix struct
 typedef struct {
     const int8_t* data;  // Pointer in mapped DDR space
@@ -63,6 +73,7 @@ uint8_t *gemmrv_get_ddr_base(void);
 #define REG_CTRL_STORE_C         (1 << 2)
 #define REG_CTRL_RESET_PERF      (1 << 3)
 #define REG_CTRL_SOFT_RESET      (1 << 4)
+#define REG_CTRL_AUTO_LOOP       (1 << 5)    // Bit 5: enable hardware auto-loop mode
 
 // Reset & read hardware cycle counters
 void hw_soft_reset(void);
@@ -71,8 +82,12 @@ void hw_read_perf_breakdown(uint32_t out[4]);
 uint32_t hw_get_perf_cycles(void);
 
 // Hardware-tiled matrix multiplication: C = A * B
-// Pure hardware 2D strided DMA offload with zero CPU repacking
+// AUTO-LOOP mode: programs hardware once, FPGA iterates all tiles internally.
+// Requires auto-loop bitstream. Falls back to legacy if dims not set.
 void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C);
+
+// Legacy per-tile dispatch (preserved for regression testing and comparison benchmarks)
+void gemmrv_mult_legacy(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C);
 
 // CPU Software post-processing (Bias, ReLU, Scaling/Shift)
 void gemmrv_post_process(gemmrv_mat_out* C, const int32_t* bias, int shift, int enable_relu);

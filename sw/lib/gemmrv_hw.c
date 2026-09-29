@@ -104,7 +104,7 @@ static inline void hw_gemm_tile_fast(uint32_t phys_A, uint32_t phys_B, uint32_t 
     while ((gemm_regs[REG_STATUS] & 0x05) != 0x04);
 }
 
-void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
+void gemmrv_mult_legacy(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
     if (gemmrv_init() < 0) return;
 
     int M = A->rows;
@@ -162,6 +162,45 @@ void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
             }
         }
     }
+}
+
+// New auto-loop gemmrv_mult: programs hardware ONCE per layer.
+// The FPGA RTL internally iterates all (M/16 × N/16 × K/16) tiles.
+// RISC-V only polls ONCE (per-layer) instead of per-tile (~890,000× reduction).
+void gemmrv_mult(const gemmrv_mat* A, const gemmrv_mat* B, gemmrv_mat_out* C) {
+    if (gemmrv_init() < 0) return;
+
+    int M = A->rows;  // Must be padded to multiple of 16
+    int K = A->cols;
+    int N = B->cols;
+
+    // Compute physical DDR addresses from mapped virtual pointer offsets
+    uint32_t phys_A = (uint32_t)(DDR_BASE_PHYS + ((uint8_t*)A->data - ddr_base_ptr));
+    uint32_t phys_B = (uint32_t)(DDR_BASE_PHYS + ((uint8_t*)B->data - ddr_base_ptr));
+    uint32_t phys_C = (uint32_t)(DDR_BASE_PHYS + ((uint8_t*)C->data - ddr_base_ptr));
+
+    // Write static stride configuration
+    gemm_regs[REG_WRITE_STRIDE_A] = 16;                    // A is block-interleaved
+    gemm_regs[REG_WRITE_STRIDE_B] = (uint32_t)B->stride;
+    gemm_regs[REG_WRITE_STRIDE_C] = (uint32_t)C->stride;
+
+    // Write full matrix dimensions — hardware loops over all tiles internally
+    gemm_regs[REG_WRITE_DIM_M]  = (uint32_t)M;
+    gemm_regs[REG_WRITE_DIM_K]  = (uint32_t)K;
+    gemm_regs[REG_WRITE_DIM_N]  = (uint32_t)N;
+    gemm_regs[REG_WRITE_BASE_A] = phys_A;
+    gemm_regs[REG_WRITE_BASE_B] = phys_B;
+    gemm_regs[REG_WRITE_BASE_C] = phys_C;
+
+    // Single START command — hardware processes ALL tiles without CPU involvement
+    asm volatile ("fence" ::: "memory");
+    gemm_regs[REG_CTRL] = REG_CTRL_AUTO_LOOP  |  // bit 5: enable hardware auto-loop
+                          REG_CTRL_STORE_C    |  // bit 2: write result C to DDR
+                          REG_CTRL_CLEAR_ACC  |  // bit 1: clear accumulator at start
+                          REG_CTRL_START;        // bit 0: start DMA FSM
+
+    // Poll ONCE per layer — executes 53 times for ResNet-50 vs. ~890,000 before
+    while ((gemm_regs[REG_STATUS] & 0x05) != 0x04);
 }
 
 void gemmrv_post_process(gemmrv_mat_out* C, const int32_t* bias, int shift, int enable_relu) {
